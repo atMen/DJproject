@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_xy_background"
+        android:orientation="vertical"
+        android:paddingLeft="11.5dp"
+        android:paddingRight="11.5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_popu_report"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bg_height_40"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="市级新闻"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/font_size_14" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_1"
+            android:background="@color/main_line" />
+
+        <TextView
+            android:id="@+id/tv_popu_share"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bg_height_40"
+            android:layout_gravity="center"
+
+            android:gravity="center"
+
+            android:text="县级新闻"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/font_size_14" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_1"
+            android:background="@color/main_line" />
+
+        <TextView
+            android:id="@+id/tv_popu_move"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bg_height_40"
+
+            android:layout_gravity="center"
+
+            android:gravity="center"
+
+            android:text="党委新闻"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/font_size_14" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_1"
+            android:background="@color/main_line" />
+
+        <TextView
+            android:id="@+id/tv_popu_seas"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bg_height_40"
+            android:layout_gravity="center"
+
+            android:gravity="center"
+
+            android:text="支部新闻"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/font_size_14" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="12dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPaddingTop="13dp"
+    app:contentPaddingLeft="13dp"
+    app:contentPaddingRight="13dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/titlename"
+                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="十九大代表风采录"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                android:textSize="13sp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/time"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1992-04-14"
+                    />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/pl"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:background="@drawable/pl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <TextView
+                        android:id="@+id/pl_num"
+                        android:layout_marginLeft="5dp"
+                        android:text="评论"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+
+                    android:gravity="center"
+                    android:layout_toRightOf="@+id/pl"
+                    android:padding="15dp"
+                    android:id="@+id/ll_dz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:paddingLeft="10dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/zan_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <TextView
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginLeft="5dp"
+                        android:text="0"
+                        android:id="@+id/zan_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <!--<TextView-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginRight="8dp"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:id="@+id/progress"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="已学"-->
+                        <!--android:textColor="@color/white"-->
+                        <!--android:textSize="15sp"-->
+                        <!--android:background="@drawable/bg01"-->
+                        <!--android:padding="5dp"-->
+                        <!--/>-->
+
+                </LinearLayout>
+
+                <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已学"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:background="@drawable/bg_progress"
+                android:padding="5dp"
+                />
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

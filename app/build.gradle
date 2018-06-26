@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "customer.tcrj.com.djproject"
+        minSdkVersion 19
+        targetSdkVersion 16
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //配置so文件
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/tbs_sdk_thirdapp_v3.2.0.1104_43200_sharewithdownload_withfilereader_withoutGame_obfs_20170609_115346.jar')
+    //必须使用
+    //    compile 'cn.jzvd:jiaozivideoplayer:6.2.9'
+    compile project(':nicevideoplayer')
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.airbnb.android:lottie:2.1.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24'
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.tsy:myokhttp:1.1.4'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+//    compile 'com.github.pinguo-zhouwei:MZBannerView:v2.0.1'
+    compile 'com.githang:status-bar-compat:0.3'
+    compile 'com.iarcuschin:simpleratingbar:0.1.5'
+    compile 'com.hyman:flowlayout-lib:1.1.2'
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'com.github.barteksc:android-pdf-viewer:3.0.0-beta.5'
+    compile 'com.github.MrWangChong:DragPhotoView:1.1.2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    compile 'com.youth.banner:banner:1.4.10'
+
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'org.jsoup:jsoup:1.10.2'
+}

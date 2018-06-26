@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--首页功能按钮名称-->
+    <string-array name="firdt_btn_name">
+        <item>企业信息</item>
+        <item>企业诚信</item>
+        <item>行政许可</item>
+        <item>投诉举报</item>
+        <item>党建信息</item>
+        <item>法律法规</item>
+
+    </string-array>
+
+    <integer-array name="image_menu_sign">
+        <item>@drawable/index01_06</item>
+        <item>@drawable/index01_06</item>
+        <item>@drawable/index01_06</item>
+        <item>@drawable/index01_06</item>
+        <item>@drawable/index01_06</item>
+        <item>@drawable/index01_06</item>
+
+
+
+    </integer-array>
+</resources>

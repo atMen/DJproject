@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">榆林党建</string>
+
+
+    <string name="music">首页</string>
+    <string name="backup">我的支部</string>
+    <string name="friends">个人中心</string>
+    <string name="setting">设置</string>
+
+    <!-- 状态视图  -->
+    <string name="loading">加载中...</string>
+    <string name="text_empty">还没有数据呢！</string>
+    <string name="data_failed">数据加载失败</string>
+    <string name="data_nomore">暂无更多数据</string>
+    <string name="text_nonet">网络异常！</string>
+    <string name="text_retry">点击重试</string>
+    <string name="load_failed">似乎没有数据啦！点击刷新</string>
+    <string name="please_input_limit_pwd">请输入数字或字母</string>
+
+</resources>

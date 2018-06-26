@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<include layout="@layout/title"/>-->
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/djtitleinfo"/>
+
+
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            app:image_scale_type="fit_xy"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--&lt;!&ndash;<com.zhouwei.mzbanner.MZBannerView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginBottom="7dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/banner"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="220dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:open_mz_mode="false"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:canLoop="true"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:indicatorAlign="center"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:indicatorPaddingLeft="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/icon_title"-->
+                <!--android:background="@color/tmblack"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:paddingBottom="2dp"-->
+                <!--android:paddingRight="5dp"-->
+                <!--android:paddingLeft="5dp"-->
+                <!--android:lines="1"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="我是标题"-->
+                <!--android:textColor="@color/white"-->
+                <!--/>-->
+
+
+        <!--</RelativeLayout>-->
+
+
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/item_menu_gridview"/>
+
+            <include layout="@layout/item_menu_gridview2"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="专题活动"
+            android:textSize="18sp"
+            android:textColor="#111111"
+            android:drawableLeft="@drawable/zt"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            />
+
+
+
+        <!--<com.zhouwei.mzbanner.MZBannerView-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/banner_db"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--app:open_mz_mode="true"-->
+            <!--app:canLoop="true"-->
+
+            <!--/>-->
+
+        <LinearLayout
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_bwcx"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/bwcx"
+                />
+            <ImageView
+                android:id="@+id/iv_yxlz"
+                android:layout_marginLeft="2dp"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="@drawable/lxyz"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

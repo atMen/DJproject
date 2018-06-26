@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_dialogactivity"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    >
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/tv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/dialog_selet_bg"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                 android:padding="5dp"
+                 android:id="@+id/content_pl"
+                 android:textSize="15sp"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="极分子的生活入党积极分子的生活"
+                 />
+
+</LinearLayout>
+
+

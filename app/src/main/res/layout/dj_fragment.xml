@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/djtitleinfo"/>
+
+            <RelativeLayout
+
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本支部党员信息"
+                    android:textSize="18sp"
+                    android:textColor="#111"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/more"
+                    android:padding="8dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="更多"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/noData"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:text="暂无数据"
+                />
+
+            <customer.tcrj.com.djproject.widget.MyGridView
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:divider="#00000000"
+                android:id="@+id/listview"
+                android:listSelector="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </customer.tcrj.com.djproject.widget.MyGridView>
+
+            <TextView
+                android:layout_margin="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="三会一课"
+                android:textSize="18sp"
+                android:textColor="#111"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_shyk"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal"
+
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:id="@+id/tv_shyk"
+                    android:padding="15dp"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="支部党员大会"
+                    android:textSize="15sp"
+                    android:background="@drawable/bg_button_skyh"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_shyk1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="支部党员会"
+                    android:textSize="15sp"
+                    android:background="@drawable/bg_button_skyh"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/tv_shyk2"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="党小组会"
+                    android:textSize="15sp"
+                    android:background="@drawable/bg_button_skyh"
+                    android:textColor="@color/black"
+
+                    />
+                <TextView
+                    android:id="@+id/tv_shyk3"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="党课"
+                    android:textSize="15sp"
+                    android:background="@drawable/bg_button_skyh"
+                    android:textColor="@color/black"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
