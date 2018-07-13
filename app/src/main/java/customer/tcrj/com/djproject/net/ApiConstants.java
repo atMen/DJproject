@@ -139,10 +139,21 @@ public class ApiConstants {
      */
     public static final String dklistApi = URLROOT+"dwgl/getTeacherList";
 
+//    /**
+//     * 题库列表
+//     */
+//    public static final String examlistApi = URLROOT+"learn/getExamList";
+
     /**
-     * 题库列表
+     * 题库列表（未考）
      */
-    public static final String examlistApi = URLROOT+"learn/getExamList";
+    public static final String examwklistApi = URLROOT+"learn/getStartExamList";
+
+    /**
+     * 题库列表（以考）
+     */
+    public static final String examyklistApi = URLROOT+"learn/getFinshExamList";
+
 
     /**
      * 网上调查列表

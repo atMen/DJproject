@@ -119,7 +119,7 @@ private void setUserInfo(Entity response) {
     if(response != null){
 
 //            llcn.setVisibility(View.VISIBLE);
-        Entity.DataBean personInfo = response.getData();
+        Entity.DataBeanX.DataBean personInfo = response.getData().getData();
 
         String photo = personInfo.getPhoto();
         Log.e("TAG","photo"+photo);

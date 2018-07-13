@@ -31,6 +31,7 @@ import customer.tcrj.com.djproject.base.NpaLinearLayoutManager;
 import customer.tcrj.com.djproject.bean.Entity;
 import customer.tcrj.com.djproject.bean.examlistInfo;
 import customer.tcrj.com.djproject.bean.qyListInfo;
+import customer.tcrj.com.djproject.bean.zxdtInfo;
 import customer.tcrj.com.djproject.net.ApiConstants;
 import customer.tcrj.com.djproject.sy.infoactivity.dkInfoActivity;
 import customer.tcrj.com.djproject.widget.CustomLoadMoreView;
@@ -52,11 +53,13 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 
     private MyOkHttp mMyOkhttp;
     private ExamlistAdapter detailAdapter;
-    private List<examlistInfo.DataBean.ContentBean> beanList;
+    private List<zxdtInfo.DataBean.ContentBean> beanList;
 
     private int pageNum = 1;
     private boolean canPull = true;
     Entity loginInfo = null;
+
+    String type;
     @Override
     protected int setLayout() {
         return R.layout.activity_dkgl;
@@ -66,6 +69,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
     protected void setView() {
         loginInfo = (Entity) ACache.get(this).getAsObject("loginInfo");
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
+        type = getIntent().getStringExtra("type");
         mPtrFrameLayout.disableWhenHorizontalMove(true);
         txtTitle.setText("在线题库");
         btnback.setOnClickListener(this);
@@ -121,6 +125,9 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 //        getData(pageNum);
     }
 
+    private String finish = "http://192.168.20.176:8888/yldj-cms/app/learn/getFinshExamList";
+    private String start = "http://192.168.20.176:8888/yldj-cms/app/learn/getStartExamList";
+
     //获取网络数据
     private void getData(final int num) {
 
@@ -129,21 +136,20 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
         try {
             jsonObject.put("page", num+"");
             jsonObject.put("size", "30");
-            jsonObject.put("memberId", loginInfo.getData().getId());
-            jsonObject.put("type", "questions");
-//            jsonObject.put("hasExam", "1");
-
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
 
     } catch (JSONException e) {
         e.printStackTrace();
     }
-//                .url(ApiConstants.examlistApi)
+
+//                    .url( (type.equals("0"))? ApiConstants.examyklistApi : ApiConstants.examwklistApi )
+
 
         mMyOkhttp.post()
-                .url(ApiConstants.examlistApi)
+                .url( (type.equals("0"))? ApiConstants.examyklistApi : ApiConstants.examwklistApi )
                 .jsonParams(jsonObject.toString())
                 .tag(this)
-            .enqueue(new GsonResponseHandler<examlistInfo>() {
+            .enqueue(new GsonResponseHandler<zxdtInfo>() {
         @Override
         public void onFailure(int statusCode, String error_msg) {
 
@@ -158,7 +164,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
         }
 
         @Override
-        public void onSuccess(int statusCode, examlistInfo response) {
+        public void onSuccess(int statusCode, zxdtInfo response) {
 //      Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
             if(response.getErrorCode().equals("0")){
@@ -179,7 +185,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 }
 
     //上拉加载更多数据
-    private void loadMoreData(examlistInfo response,boolean isError) {
+    private void loadMoreData(zxdtInfo response,boolean isError) {
         Log.e("TAG","loadMoreData");
         if (response == null) {
             Log.e("TAG","response == null:");
@@ -200,7 +206,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 
 //          Toast.makeText(mContext, getResources().getString(R.string.data_nomore), Toast.LENGTH_SHORT).show();
             }else{
-                List<examlistInfo.DataBean.ContentBean> content = response.getData().getContent();
+                List<zxdtInfo.DataBean.ContentBean> content = response.getData().getContent();
                 Log.e("TAG","content:"+content.size());
                 pageNum++;
 
@@ -218,7 +224,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
     }
 
     //下拉刷新
-    private void loadData(List<examlistInfo.DataBean.ContentBean> response,boolean isError) {
+    private void loadData(List<zxdtInfo.DataBean.ContentBean> response,boolean isError) {
 
         if (response == null  || response.size() <= 0) {
             if(mPtrFrameLayout != null){
@@ -284,22 +290,29 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 
-        examlistInfo.DataBean.ContentBean response = (examlistInfo.DataBean.ContentBean) adapter.getItem(position);
+        zxdtInfo.DataBean.ContentBean response = (zxdtInfo.DataBean.ContentBean) adapter.getItem(position);
 //        Log.e("TAG","h5:"+"http://192.168.20.201:8080/yldj-cms/app/exam.chtml"+"?examId="+response.getId()+"&memberId="+loginInfo.getData().getId());
         Bundle bundle1 = new Bundle();
 
 
 
-        String examState = response.getExamState();
+        String examState = response.getApproved();
 
         if(examState != null){
             if(examState.equals("1")){//未考试
-                bundle1.putString("url",ApiConstants.h5examApi+"?examId="+response.getId()+"&memberId="+loginInfo.getData().getId());
-                toClass(this,ksdtActivity.class,bundle1);
+
+                if(response.getStartTime() != null && response.getStartTime().equals("1")){
+                    Toast.makeText(this, "正在阅卷,请稍后查看", Toast.LENGTH_SHORT).show();
+                }else {
+                    bundle1.putString("url",ApiConstants.h5examApi+"memberId="+loginInfo.getData().getData().getId()+"&examId="+response.getId());
+//                bundle1.putString("url",ApiConstants.h5examApi+"?examId="+response.getId()+"&memberId="+loginInfo.getData().getId());
+                    toClass(this,ksdtActivity.class,bundle1);
+                }
+
             }else if(examState.equals("2")){//已交卷
                 Toast.makeText(this, "还未阅卷,暂无法查看", Toast.LENGTH_SHORT).show();
             }else if(examState.equals("3")){//已阅卷
-                bundle1.putString("url",ApiConstants.h5yyj+"?examId="+response.getId()+"&pid="+loginInfo.getData().getId());
+                bundle1.putString("url",ApiConstants.h5yyj+"?examId="+response.getId()+"&pid="+loginInfo.getData().getData().getId());
                 toClass(this,ksActivity.class,bundle1);
             }
         }else {

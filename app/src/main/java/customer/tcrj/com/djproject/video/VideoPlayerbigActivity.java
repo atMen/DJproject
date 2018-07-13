@@ -1232,7 +1232,7 @@ public class VideoPlayerbigActivity extends BaseActivity implements View.OnClick
         JSONObject jsonObject = new JSONObject();
 //        Log.e("TAG","memberId:"+loginInfo.getData().getId()+"---coursewareId:"+memberId+"---courseId:"+courseId+"---content:"+s);
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", coursewareId);
             jsonObject.put("courseId", memberId);
             jsonObject.put("content", s);
@@ -1510,7 +1510,7 @@ Log.e("TAG","Duration:"+Duration+"----CurrentPosition"+CurrentPosition+"minducti
         JSONObject jsonObject = new JSONObject();
 //        {"memberId":"8ef0da67b0ee4d98ad70b91c2f653617","coursewareId":"e229809ead984abfa02e1555912e3bb4","studyState":"50"}
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", coursewareId);
             jsonObject.put("playTime", Current / 1000);
             jsonObject.put("studyState", result);

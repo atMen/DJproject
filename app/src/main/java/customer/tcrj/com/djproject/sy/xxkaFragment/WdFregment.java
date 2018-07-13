@@ -59,6 +59,7 @@ public class WdFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
     private boolean canPull = true;
 
     private String id;
+    String userId;
     public WdFregment(String id) {
         this.id = id;
     }
@@ -73,7 +74,7 @@ public class WdFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
     @Override
     protected void setView() {
         loginInfo = (Entity) ACache.get(mContext).getAsObject("loginInfo");
-        String userId = loginInfo.getData().getId();
+        userId = loginInfo.getData().getData().getId();
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         mPtrFrameLayout.disableWhenHorizontalMove(true);
 
@@ -126,13 +127,12 @@ public class WdFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
 
     //获取网络数据
     private void getData(final int num) {
-        Log.e("TAG","courseid:"+id+"--userid:"+loginInfo.getData().getId());
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("page", num+"");
             jsonObject.put("size", "30");
             jsonObject.put("courseId", id);
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", userId);
             jsonObject.put("type", "13303");
         } catch (JSONException e) {
             e.printStackTrace();

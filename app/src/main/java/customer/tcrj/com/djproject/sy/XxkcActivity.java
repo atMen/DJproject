@@ -1,5 +1,6 @@
 package customer.tcrj.com.djproject.sy;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -11,6 +12,7 @@ import customer.tcrj.com.djproject.R;
 import customer.tcrj.com.djproject.adpater.XxkcFragmentPagerAdapter;
 import customer.tcrj.com.djproject.adpater.XxksFragmentPagerAdapter;
 import customer.tcrj.com.djproject.base.BaseActivity;
+import customer.tcrj.com.djproject.mine.ExamListActivity;
 
 public class XxkcActivity extends BaseActivity {
 
@@ -22,6 +24,8 @@ public class XxkcActivity extends BaseActivity {
     TextView txtTitle;
     @BindView(R.id.btnback)
     ImageView btnback;
+    @BindView(R.id.num)
+    TextView num;
 
     private XxkcFragmentPagerAdapter myFragmentPagerAdapter;
     private String mine = null;
@@ -36,8 +40,16 @@ public class XxkcActivity extends BaseActivity {
 
          mine = getIntent().getStringExtra("mine");
 
+        if(mine != null){
+            num.setVisibility(View.GONE);
+        }else {
+            num.setVisibility(View.VISIBLE);
+        }
 
-//      mViewPager.setOffscreenPageLimit(4);
+        num.setText("开始答题");
+        num.setOnClickListener(this);
+
+      mViewPager.setOffscreenPageLimit(4);
         myFragmentPagerAdapter = new XxkcFragmentPagerAdapter(getSupportFragmentManager(),mine);
         mViewPager.setAdapter(myFragmentPagerAdapter);
 
@@ -59,6 +71,11 @@ public class XxkcActivity extends BaseActivity {
 
             case R.id.btnback:
                 finish();
+                break;
+            case R.id.num:
+                Bundle bundle3 = new Bundle();
+                bundle3.putString("type","1");
+                toClass(this,ExamListActivity.class,bundle3);
                 break;
         }
     }

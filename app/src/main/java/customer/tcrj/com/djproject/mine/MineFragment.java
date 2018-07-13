@@ -127,7 +127,7 @@ private void setUserInfo(Entity response) {
     if(response != null){
 
 //            llcn.setVisibility(View.VISIBLE);
-        Entity.DataBean personInfo = response.getData();
+        Entity.DataBeanX.DataBean personInfo = response.getData().getData();
 
         String photo = personInfo.getPhoto();
         Log.e("TAG","photo"+photo);
@@ -213,16 +213,16 @@ private void setUserInfo(Entity response) {
                 Toast.makeText(mContext, "敬请期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rl_cn://承诺
-
-                String myPromise = loginInfo.getData().getMyPromise();
-                if(myPromise.equals("")){
+                Entity.DataBeanX.DataBean data = loginInfo.getData().getData();
+                String myPromise = data.getMyPromise();
+                if(myPromise == null && "".equals(myPromise)){
                     Toast.makeText(mContext, "没有承诺信息", Toast.LENGTH_SHORT).show();
                 }else {
 
-                    Log.e("TAG","cn:"+loginInfo.getData().getMyPromise());
+                    Log.e("TAG","cn:"+data.getMyPromise());
                     Bundle bundle = new Bundle();
-                    bundle.putString("cn",loginInfo.getData().getMyPromise());
-                    toClass(mContext,DialogmsgActivity.class,bundle);
+                    bundle.putSerializable("cn",data);
+                    toClass(mContext,DialogCRActivity.class,bundle);
                 }
 
 
@@ -230,10 +230,9 @@ private void setUserInfo(Entity response) {
 
             case R.id.rl_zxgx:
 //                toClass(mContext,NetJSCallJavaActivity.class);
-//                Bundle bundle1 = new Bundle();
-//                bundle1.putString("url","http://192.168.20.201:8080/yldj-cms/app/exam.chtml");
-//                toClass(mContext,ksActivity.class,bundle1);
-                toClass(mContext,ExamListActivity.class);
+                Bundle bundle3 = new Bundle();
+                bundle3.putString("type","0");
+                toClass(mContext,ExamListActivity.class,bundle3);
                 break;
             case R.id.rl_hd:
 //                toClass(mContext,NetJSCallJavaActivity.class);
@@ -251,7 +250,8 @@ private void setUserInfo(Entity response) {
                 bundle2.putString("mine","mine");
                 toClass(mContext,XxkcActivity.class,bundle2);
                 break;
-
+            default:
+                break;
 
         }
     }

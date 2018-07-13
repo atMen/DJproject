@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="customer.tcrj.com.djproject">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -21,7 +22,8 @@
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar1"
+        tools:replace="android:icon, android:theme">
         <activity
             android:name=".LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -339,7 +341,6 @@
         <activity
             android:name=".mine.DialogmsgActivity"
             android:theme="@style/myTransparent" />
-
         <activity
             android:name=".sy.DialogdhInfoActivity"
             android:theme="@style/myTransparent" />
@@ -356,7 +357,11 @@
             android:theme="@style/transparent" />
         <activity android:name=".sy.ZtActivity" />
         <activity android:name=".sy.releaseActivity" />
-        <activity android:name=".sy.writexyActivity"></activity>
+        <activity android:name=".sy.writexyActivity" />
+
+        <activity
+            android:name=".mine.DialogCRActivity"
+            android:theme="@style/myTransparent" />
     </application>
 
 </manifest>

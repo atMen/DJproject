@@ -57,13 +57,7 @@ public class xyqFregment extends BaseFragment implements BaseQuickAdapter.OnItem
         return R.layout.dw_fregment;
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//
-//        Log.e("TAG","onResume");
-//        getData(1);
-//    }
+
 
     @Override
     protected void setView() {
@@ -90,19 +84,6 @@ public class xyqFregment extends BaseFragment implements BaseQuickAdapter.OnItem
             }
         });
         beanList = new ArrayList<>();
-//        hdjlInfo.DataBean.ContentBean a = new hdjlInfo.DataBean.ContentBean("1","阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课");
-//        hdjlInfo.DataBean.ContentBean b = new hdjlInfo.DataBean.ContentBean("2张三","阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房圾费格拉斯库房管理上不敢啦三课理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课");
-//        hdjlInfo.DataBean.ContentBean c = new hdjlInfo.DataBean.ContentBean("3张三","阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送");
-//        hdjlInfo.DataBean.ContentBean d = new hdjlInfo.DataBean.ContentBean("4张三","阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课");
-//        hdjlInfo.DataBean.ContentBean e = new hdjlInfo.DataBean.ContentBean("5张三","阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课");
-//        hdjlInfo.DataBean.ContentBean f = new hdjlInfo.DataBean.ContentBean("6张三","阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课阿卡数据恢复哥萨克减肥药噶福挂一个发送垃圾费格拉斯库房管理上不敢啦三课");
-//
-//        beanList.add(a);
-//        beanList.add(b);
-//        beanList.add(c);
-//        beanList.add(d);
-//        beanList.add(e);
-//        beanList.add(f);
         mRecyclerView.setLayoutManager(new NpaLinearLayoutManager(mContext));
         mRecyclerView.setAdapter(detailAdapter = new hdjlAdapter(beanList, mContext));
         detailAdapter.setPreLoadNumber(1);

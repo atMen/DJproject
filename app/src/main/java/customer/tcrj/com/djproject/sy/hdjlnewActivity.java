@@ -41,7 +41,7 @@ public class hdjlnewActivity extends BaseActivity {
         mViewPager.setOffscreenPageLimit(2);
         myFragmentPagerAdapter = new hdjlFragmentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(myFragmentPagerAdapter);
-        num.setVisibility(View.VISIBLE);
+        num.setVisibility(View.GONE);
         //将TabLayout和ViewPager绑定在一起，使双方各自的改变都能直接影响另一方，解放了开发人员对双方变动事件的监听
         mTabLayout.setupWithViewPager(mViewPager);
         txtTitle.setText("互动交流");
@@ -57,11 +57,7 @@ public class hdjlnewActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
 
-                if(position == 0){
-                    num.setVisibility(View.VISIBLE);
-                }else {
-                    num.setVisibility(View.GONE);
-                }
+
             }
 
             @Override

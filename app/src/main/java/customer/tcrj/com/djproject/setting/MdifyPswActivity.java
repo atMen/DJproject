@@ -87,7 +87,7 @@ public class MdifyPswActivity extends BaseActivity {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("oldPassword", psw1);
             jsonObject.put("newPassword", psw2);
         } catch (JSONException e) {

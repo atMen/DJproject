@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import customer.tcrj.com.djproject.Utils.ACache;
+import customer.tcrj.com.djproject.Utils.AppManager;
 import customer.tcrj.com.djproject.base.BaseActivity;
 import customer.tcrj.com.djproject.bean.Entity;
 import customer.tcrj.com.djproject.net.ApiConstants;
@@ -125,6 +126,8 @@ public class RegisterActivity extends BaseActivity {
                         if(errorCode.equals("0")){
 
                             toClass(RegisterActivity.this,LoginActivity.class);
+                            AppManager.getAppManager().finishAllActivity();
+
                         }
 
 

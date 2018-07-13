@@ -197,7 +197,7 @@ public class XxcxActivity extends BaseActivity implements BaseQuickAdapter.OnIte
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("page", num+"");
             jsonObject.put("size", "30");
             jsonObject.put("title", title);

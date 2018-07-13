@@ -255,6 +255,7 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
                 break;
             case R.id.ll_zc:
                 toClass(LoginActivity.this,RegisterActivity.class);
+
                 break;
             case R.id.clean_password:
                 et_password.setText("");

@@ -59,7 +59,7 @@ public class XxksActivity extends BaseActivity {
 
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         kcid = getIntent().getStringExtra("kcid");
-        getNum(loginInfo.getData().getId(),kcid);
+        getNum(loginInfo.getData().getData().getId(),kcid);
 
         mViewPager.setOffscreenPageLimit(4);
         myFragmentPagerAdapter = new XxksFragmentPagerAdapter(getSupportFragmentManager(),kcid);

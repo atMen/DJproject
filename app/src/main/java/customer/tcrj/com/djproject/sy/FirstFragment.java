@@ -23,6 +23,12 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,10 +39,12 @@ import customer.tcrj.com.djproject.MyApp;
 
 import customer.tcrj.com.djproject.R;
 import customer.tcrj.com.djproject.Utils.ACache;
+import customer.tcrj.com.djproject.Utils.ShowImageUtils;
 import customer.tcrj.com.djproject.adpater.MainMenuAdapter;
 import customer.tcrj.com.djproject.base.BaseFragment;
 import customer.tcrj.com.djproject.bean.Entity;
 import customer.tcrj.com.djproject.bean.MenuEntity;
+import customer.tcrj.com.djproject.bean.MessageEvent;
 import customer.tcrj.com.djproject.bean.picInfo;
 import customer.tcrj.com.djproject.bean.userInfo;
 import customer.tcrj.com.djproject.mine.DialogmsgActivity;
@@ -123,6 +131,7 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
     private void initview() {
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
+        EventBus.getDefault().register(this);
         titles = new ArrayList<>();
     }
 
@@ -178,9 +187,21 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     }
 
     private void geticon() {
+        showLoadingDialog("正在加载...");
+
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("username", "");
+            jsonObject.put("password", "");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         mMyOkhttp.post()
                 .url(ApiConstants.picApi)
+                .jsonParams(jsonObject.toString())
                 .tag(this)
                 .enqueue(new GsonResponseHandler<picInfo>() {
                     @Override
@@ -194,11 +215,9 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                     @Override
                     public void onSuccess(int statusCode, picInfo response) {
                         hideLoadingDialog();
-//                        Toast.makeText(mContext,response.getMessage(), Toast.LENGTH_SHORT).show();
                         if(response.getErrorCode().equals("0")){
 
                             bannerList = response.getData();
-//                            bannerList1 = response.getData().get(1);
 
                             Log.e("TAG","bannerList"+bannerList.size());
                             if(bannerList.size()>0 ){
@@ -209,11 +228,8 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                                     Log.e("TAG","msg"+bannerList.get(i).getThumbUrl());
                                 }
                                 setBannerData(bannerList);
-//                                icon_title.setText(bannerList.get(0).getTitle());
                             }
-//                            if(bannerList1.size()>0 ){
-//                                setDBBannerData();
-//                            }
+
 
                         }
                     }
@@ -221,6 +237,7 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     }
     List<picInfo.DataBean> bannerList;
     private List<String> titles;
+
     private void setBannerData(List<picInfo.DataBean> bannerList) {
 
         banner.setImages(bannerList)
@@ -238,11 +255,12 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
         if(response != null){
 
             llcn.setVisibility(View.VISIBLE);
-            Entity.DataBean personInfo = response.getData();
+            Entity.DataBeanX.DataBean personInfo = response.getData().getData();
 
             String photo = personInfo.getPhoto();
             Log.e("TAG","photo"+photo);
             if(photo != null){
+
 
                 if(!photo.equals("")){
                     Log.e("TAG","setting-photo"+photo);
@@ -413,4 +431,13 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                 bundle.putSerializable("picInfo",dataBean);
                 toClass(mContext,NewsDetailActivity.class,bundle);
     }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void Event(MessageEvent messageEvent) {
+        Log.e("TAG","evenbus:"+messageEvent.getMessage());
+        cn.setText(messageEvent.getMessage());
+    }
+
+
 }

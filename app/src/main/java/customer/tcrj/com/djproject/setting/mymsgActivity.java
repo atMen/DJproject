@@ -122,7 +122,7 @@ public class mymsgActivity extends BaseActivity implements BaseQuickAdapter.OnIt
         try {
 
 
-            jsonObject.put("memberId",loginInfo.getData().getId());
+            jsonObject.put("memberId",loginInfo.getData().getData().getId());
             jsonObject.put("page", num+"");
             jsonObject.put("size", "10");
 

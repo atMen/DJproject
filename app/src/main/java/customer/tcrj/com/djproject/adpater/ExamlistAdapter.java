@@ -2,6 +2,7 @@ package customer.tcrj.com.djproject.adpater;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import java.util.List;
 import customer.tcrj.com.djproject.R;
 import customer.tcrj.com.djproject.bean.examlistInfo;
 import customer.tcrj.com.djproject.bean.qyListInfo;
+import customer.tcrj.com.djproject.bean.zxdtInfo;
 
 
 /**
@@ -22,17 +24,17 @@ import customer.tcrj.com.djproject.bean.qyListInfo;
  * author: Will .
  * date: 2017/9/27 .
  */
-public class ExamlistAdapter extends BaseQuickAdapter<examlistInfo.DataBean.ContentBean, BaseViewHolder>{
+public class ExamlistAdapter extends BaseQuickAdapter<zxdtInfo.DataBean.ContentBean, BaseViewHolder>{
     private Context mContext;
 
-    public ExamlistAdapter(@Nullable List<examlistInfo.DataBean.ContentBean> data, Context context) {
+    public ExamlistAdapter(@Nullable List<zxdtInfo.DataBean.ContentBean> data, Context context) {
         super(R.layout.item_examlist, data);
         this.mContext = context;
     }
 
 
     @Override
-    protected void convert(final BaseViewHolder helper, examlistInfo.DataBean.ContentBean item) {
+    protected void convert(final BaseViewHolder helper, zxdtInfo.DataBean.ContentBean item) {
         TextView name = helper.getView(R.id.titlename);
         TextView time = helper.getView(R.id.time);
         TextView stat = helper.getView(R.id.stat);
@@ -40,16 +42,24 @@ public class ExamlistAdapter extends BaseQuickAdapter<examlistInfo.DataBean.Cont
 
 
         name.setText(item.getExamName());
-//        time.setText(item.getExpTime());
 
         time.setText("开始时间："+item.getEffTime());
         time2.setText("结束时间："+item.getExpTime());
 
-        String examState = item.getExamState();
+        String examState = item.getApproved();
+        Log.e("TAG","状态："+examState);
         if(examState != null){
             if(examState.equals("1")){
-                stat.setText("开始答题");
-                stat.setBackground(mContext.getResources().getDrawable(R.drawable.bg01));
+
+                if( item.getStartTime() != null && item.getStartTime().equals("1")){
+                    stat.setText("正在阅卷");
+                    stat.setBackground(mContext.getResources().getDrawable(R.drawable.bg03));
+                }else {
+                    stat.setText("开始答题");
+                    stat.setBackground(mContext.getResources().getDrawable(R.drawable.bg01));
+                }
+
+
             }else if(examState.equals("2")){
                 stat.setText("已交卷");
                 stat.setBackground(mContext.getResources().getDrawable(R.drawable.bg03));

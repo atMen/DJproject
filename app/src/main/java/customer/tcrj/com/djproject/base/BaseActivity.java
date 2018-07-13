@@ -44,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mRootView = createView(null, null, savedInstanceState);
         setContentView(mRootView);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.red), true);
+        setStatusBar();
         AppManager.getAppManager().addActivity(this);
         mLoadingDialog = DialogHelper.getLoadingDialog(this);
         setView();
@@ -57,6 +57,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         View view = getLayoutInflater().inflate(setLayout(), container);
         unbinder = ButterKnife.bind(this, view);
         return view;
+    }
+
+    protected void setStatusBar() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.red), true);
     }
 
 

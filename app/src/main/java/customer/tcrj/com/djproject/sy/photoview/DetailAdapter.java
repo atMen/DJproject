@@ -18,6 +18,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import customer.tcrj.com.djproject.R;
+import customer.tcrj.com.djproject.Utils.ShowImageUtils;
+import customer.tcrj.com.djproject.net.ApiConstants;
 
 /**
  * 图片会配器
@@ -145,13 +147,15 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.RecyclerVi
         if (TextUtils.isEmpty(url)) {
             return;
         }
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        Glide.with(mContext).load(url)
-                .dontAnimate()
-                .placeholder(R.mipmap.ic_loding)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .error(R.mipmap.ic_loding_error)
-                .into(imageView);
+//        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//        Glide.with(mContext).load(url)
+//                .dontAnimate()
+//                .placeholder(R.mipmap.ic_loding)
+//                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+//                .error(R.mipmap.ic_loding_error)
+//                .into(imageView);
+
+        ShowImageUtils.showImageView(mContext,url,imageView,R.drawable.ic_placeholder);
 
     }
 }

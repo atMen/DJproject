@@ -118,8 +118,8 @@ public class NetJSCallJavaActivity extends Activity implements View.OnClickListe
 			}
 
 			public String getUserID(){//js调用java Toast方法
-				Toast.makeText(NetJSCallJavaActivity.this, loginInfo.getData().getId(), Toast.LENGTH_SHORT).show();
-				return loginInfo.getData().getId();
+				Toast.makeText(NetJSCallJavaActivity.this, loginInfo.getData().getData().getId(), Toast.LENGTH_SHORT).show();
+				return loginInfo.getData().getData().getId();
 			}
 
 

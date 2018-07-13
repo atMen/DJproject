@@ -141,7 +141,7 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
         if(response != null){
 
 //            llcn.setVisibility(View.VISIBLE);
-            Entity.DataBean personInfo = response.getData();
+            Entity.DataBeanX.DataBean personInfo = response.getData().getData();
 
             String photo = personInfo.getPhoto();
             Log.e("TAG","photo"+photo);
@@ -243,7 +243,7 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
         try {
             jsonObject.put("page", "1");
             jsonObject.put("size", "3");
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
         } catch (JSONException e) {
             e.printStackTrace();
         }

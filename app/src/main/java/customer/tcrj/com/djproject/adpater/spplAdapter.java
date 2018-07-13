@@ -47,7 +47,11 @@ public class spplAdapter extends BaseQuickAdapter<plInfo.DataBean.ContentBean, B
 
         content_pl.setText(item.getContent());
         time_pl.setText(item.getCreateDate());
-        name.setText(item.getCreateUser().getCname());
+        plInfo.DataBean.ContentBean.CreateUserBean createUser = item.getCreateUser();
+        if(createUser != null){
+            name.setText(item.getCreateUser().getCname());
+        }
+
 
 //        content_pl.setText(item.getContent());
 //        time_pl.setText(item.getCreatedataDate());

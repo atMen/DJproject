@@ -310,9 +310,9 @@ public class onlyplActivity extends BaseActivity implements BaseQuickAdapter.OnI
     private void toPL(String s) {
 //        {"memberId":"8ef0da67b0ee4d98ad70b91c2f653617","courseId":"663a0a3b759648748467d793ab0a467e","coursewareId":"e229809ead984abfa02e1555912e3bb4","content":"测试测试测试测试"}
         JSONObject jsonObject = new JSONObject();
-        Log.e("TAG","memberId:"+loginInfo.getData().getId()+"---coursewareId:"+memberId+"---courseId:"+courseId+"---content:"+s);
+        Log.e("TAG","memberId:"+loginInfo.getData().getData().getId()+"---coursewareId:"+memberId+"---courseId:"+courseId+"---content:"+s);
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", courseId);
             jsonObject.put("courseId", memberId);
             jsonObject.put("content", s);

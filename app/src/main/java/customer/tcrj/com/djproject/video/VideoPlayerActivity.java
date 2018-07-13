@@ -1130,11 +1130,10 @@ public class VideoPlayerActivity extends Activity implements View.OnClickListene
         Log.e("TAG","当前时间："+CurrentPosition+"总时长："+Duration+"比值："+result);
 
         showLoadingDialog("正在提交学习进度");
-        Log.e("TAG","memberId："+loginInfo.getData().getId()+"coursewareId："+coursewareId+"比值："+result);
         JSONObject jsonObject = new JSONObject();
 //        {"memberId":"8ef0da67b0ee4d98ad70b91c2f653617","coursewareId":"e229809ead984abfa02e1555912e3bb4","studyState":"50"}
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", coursewareId);
             jsonObject.put("studyState", result);
         } catch (JSONException e) {

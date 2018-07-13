@@ -126,7 +126,7 @@ public class KCFragment extends BaseFragment implements  BaseQuickAdapter.OnItem
 
     //获取网络数据
     private void getData(final int num) {
-        Log.e("TAG","loginInfo.getData().getId()"+loginInfo.getData().getId());
+        Log.e("TAG","loginInfo.getData().getId()"+loginInfo.getData().getData().getId());
         JSONObject jsonObject = new JSONObject();
 
         try {
@@ -144,7 +144,7 @@ public class KCFragment extends BaseFragment implements  BaseQuickAdapter.OnItem
             if( ismine != null && ismine.equals("mine")){
                 jsonObject.put("onlyShowHasLearn", "1");
             }
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("page", num+"");
             jsonObject.put("size", "20");
 

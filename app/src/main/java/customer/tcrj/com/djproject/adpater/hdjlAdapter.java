@@ -34,7 +34,7 @@ public class hdjlAdapter extends BaseQuickAdapter<hdjlInfo.DataBean.ContentBean,
         TextView name = helper.getView(R.id.name);
 
         content.setText(item.getMsgContent());
-        name.setText("--"+item.getMsgTitle());
+        name.setText("--"+item.getCname());
 
     }
 

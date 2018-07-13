@@ -310,8 +310,8 @@ public class ksdtActivity extends BaseActivity {
             }
 
             public String getUserID(){//js调用java Toast方法
-                Toast.makeText(ksdtActivity.this, loginInfo.getData().getId(), Toast.LENGTH_SHORT).show();
-                        return loginInfo.getData().getId();
+                Toast.makeText(ksdtActivity.this, loginInfo.getData().getData().getId(), Toast.LENGTH_SHORT).show();
+                        return loginInfo.getData().getData().getId();
             }
 
             public void back() {

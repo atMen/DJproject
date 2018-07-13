@@ -66,7 +66,7 @@ public class SpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
     @Override
     protected void setView() {
         loginInfo = (Entity) ACache.get(mContext).getAsObject("loginInfo");
-        String userId = loginInfo.getData().getId();
+        String userId = loginInfo.getData().getData().getId();
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         mPtrFrameLayout.disableWhenHorizontalMove(true);
 
@@ -121,13 +121,12 @@ public class SpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
 
     //获取网络数据
     private void getData(final int num) {
-        Log.e("TAG","courseid:"+id+"--userid:"+loginInfo.getData().getId());
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("page", num+"");
             jsonObject.put("size", "30");
             jsonObject.put("courseId", id);
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("type", "13301");
         } catch (JSONException e) {
             e.printStackTrace();

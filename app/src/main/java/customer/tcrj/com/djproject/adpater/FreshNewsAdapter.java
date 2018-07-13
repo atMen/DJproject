@@ -71,8 +71,14 @@ public class FreshNewsAdapter extends BaseQuickAdapter<qyListInfo.DataBean.Conte
         name.setText("姓名："+item.getCname());
 
         String optime = item.getCreateDate();
-        String substring = optime.substring(0, 10);
-        time.setText("出生日期："+substring);
+        if(optime != null && optime.length() >= 10){
+            String substring = optime.substring(0, 10);
+            time.setText("出生日期："+substring);
+        }else {
+
+            time.setText("出生日期：");
+        }
+
         String sex1 = item.getSex();
         if(sex1.equals("1")){
             sex.setText("性别：男");

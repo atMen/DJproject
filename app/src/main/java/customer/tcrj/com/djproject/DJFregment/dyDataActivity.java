@@ -132,7 +132,7 @@ public class dyDataActivity extends BaseActivity implements BaseQuickAdapter.OnI
         try {
             jsonObject.put("page", num+"");
             jsonObject.put("size", "20");
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
         } catch (JSONException e) {
             e.printStackTrace();
         }

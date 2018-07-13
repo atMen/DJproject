@@ -56,13 +56,20 @@ public class DwlistviewAdapter extends BaseQuickAdapter<qyListInfo.DataBean.Cont
         }
         name.setText("姓名："+item.getCname());
         String optime = item.getCreateDate();
-        String substring = optime.substring(0, 10);
-        time.setText("出生日期："+substring);
-        String sex1 = item.getSex();
-        if(sex1.equals("1")){
-            sex.setText("性别：男");
+        if(optime != null && optime.length() >= 10){
+            String substring = optime.substring(0, 10);
+            time.setText("出生日期："+substring);
         }else {
+
+            time.setText("出生日期：");
+        }
+        String sex1 = item.getSex();
+        if(sex1 != null && sex1.equals("1")){
+            sex.setText("性别：男");
+        }else if(sex1 != null && sex1.equals("0")){
             sex.setText("性别：女");
+        }else {
+            sex.setText("性别：");
         }
 
         duty.setText("职务："+item.getPrzyjszwmc());

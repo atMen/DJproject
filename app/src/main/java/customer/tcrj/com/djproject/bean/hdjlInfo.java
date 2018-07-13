@@ -8,9 +8,10 @@ import java.util.List;
 
 public class hdjlInfo {
 
+
     /**
      * message : 执行成功!
-     * data : {"content":[{"id":"50f0cfa592f24309b62066db5782dbae","optime":"2018-04-25T09:27:12.000+0000","modelId":"d9c9b6b9adf04ae08997c3f7315344b9","modelName":"","userName":"","userAge":"","userSex":"0","userIDCard":"","userPhone":"","userEmail":"","userAddress":"","userIp":"127.0.0.1","msgCode":"0","msgTitle":"张三","msgContent":"我的心愿我的心愿我的心愿我的心愿我的心愿我的心愿","msgIsPublish":"1","msgIsReply":"0","msgDoContent":"","msgAddTime":"2018-04-25 17:27:12","msgIsOpen":"0","msgAcceptDtime":"","msgOverTime":"","msgNoAcceptDtime":"","msgNoAcceptOpin":"","msgZwwxDtime":"","msgZwwxOpin":"","submitDeptId":"","submitDeptName":"","msgDoDeptId":"","msgDoDeptName":"","sqGoalId":"","sqGoalName":"","msgFiltrateType":"0","msgSelectPwd":"","msgStatus":"0","superviseFlag":"0","alarmFlag":"0","timeoutFlag":"0","timeLimit":"0","hotReply":"","hotReplyName":"","xjpcFlag":"0","delayFlag":"0","delayAppFlag":"","flowInsId":"","flowInsAppState":"0","msgFlag":"0","degreeOfSatisfaction":"0"}],"last":true,"totalElements":1,"totalPages":1,"size":5,"number":0,"sort":[{"direction":"DESC","property":"msgAddTime","ignoreCase":false,"nullHandling":"NATIVE","ascending":false}],"first":true,"numberOfElements":1}
+     * data : {"content":[{"id":"ce1e3b73b95149ab8b165e5c4db129c5","optime":"2018-07-13T06:10:30.000+0000","isNewRecord":false,"remarks":"","createBy":"","createDate":"","updateBy":"cae38184ad7a4813a9d770d391949b26","updateDate":"2018-07-13 14:13:53","delFlag":"0","updateUser":{"id":"cae38184ad7a4813a9d770d391949b26","optime":"2018-07-02T02:17:33.000+0000","cname":"测试2","ename":"ceshi2","enable":"1","deleted":"0","password":"e10adc3949ba59abbe56e057f20f883e","departmentId":"674c984b9fda4e67be5b7940d96d91f5","departmentName":"吴堡县工业园区管理委员会党委","parentId":"674c984b9fda4e67be5b7940d96d91f5","code":"","sex":"1","mobile":"15236895645","telphone":"","email":"","address":"陕西汉中","note":"","photo":"","identityCard":"610322197712120311","mz":"13601","isTw":"0","csrq":"","xl":"13701","rylb":"","jrdzzrq":"","zwzsdyrq":"","gzgw":"13801","cjgzrq":"","jtzz":"","hyzk":"0","dagldwmc":"","przyjszwmc":"党务科长","xshjclx":"","yxqk":"","dypxqk":"","isNmg":"0","isSldy":"0","sljtqk":"","sqlxsj":"","isLddy":"0","wclx":"","wdcl":"","openId":"","paidCast":"1","isParty":"0","application":"","applicationName":"","type":"0","joinstate":"14301","qspm":"","zbpm":"","gblx":"","xj":"","score":"","actualDue":"0"},"purchasePrice":0,"memberId":"","msgContent":"十九大相关资料文件","msgAddress":"14206","msgAudit":"2","msgAuditTime":"2018-07-13 14:12:26","msgIsPublish":"1","msgPublishTime":"2018-07-13 14:12:33","claimMemberId":"cae38184ad7a4813a9d770d391949b26","claimStatus":"1","claimTime":"2018-07-13 14:13:32","msgOverStatue":"1","msgOverTime":"2018-07-13 14:13:53","cname":"徐志伟","mobile":"136795688558","isMyself":""}],"last":false,"totalPages":4,"totalElements":4,"sort":[{"direction":"DESC","property":"optime","ignoreCase":false,"nullHandling":"NATIVE","ascending":false}],"numberOfElements":1,"first":true,"size":1,"number":0}
      * errorCode : 0
      */
 
@@ -44,24 +45,24 @@ public class hdjlInfo {
 
     public static class DataBean {
         /**
-         * content : [{"id":"50f0cfa592f24309b62066db5782dbae","optime":"2018-04-25T09:27:12.000+0000","modelId":"d9c9b6b9adf04ae08997c3f7315344b9","modelName":"","userName":"","userAge":"","userSex":"0","userIDCard":"","userPhone":"","userEmail":"","userAddress":"","userIp":"127.0.0.1","msgCode":"0","msgTitle":"张三","msgContent":"我的心愿我的心愿我的心愿我的心愿我的心愿我的心愿","msgIsPublish":"1","msgIsReply":"0","msgDoContent":"","msgAddTime":"2018-04-25 17:27:12","msgIsOpen":"0","msgAcceptDtime":"","msgOverTime":"","msgNoAcceptDtime":"","msgNoAcceptOpin":"","msgZwwxDtime":"","msgZwwxOpin":"","submitDeptId":"","submitDeptName":"","msgDoDeptId":"","msgDoDeptName":"","sqGoalId":"","sqGoalName":"","msgFiltrateType":"0","msgSelectPwd":"","msgStatus":"0","superviseFlag":"0","alarmFlag":"0","timeoutFlag":"0","timeLimit":"0","hotReply":"","hotReplyName":"","xjpcFlag":"0","delayFlag":"0","delayAppFlag":"","flowInsId":"","flowInsAppState":"0","msgFlag":"0","degreeOfSatisfaction":"0"}]
-         * last : true
-         * totalElements : 1
-         * totalPages : 1
-         * size : 5
-         * number : 0
-         * sort : [{"direction":"DESC","property":"msgAddTime","ignoreCase":false,"nullHandling":"NATIVE","ascending":false}]
-         * first : true
+         * content : [{"id":"ce1e3b73b95149ab8b165e5c4db129c5","optime":"2018-07-13T06:10:30.000+0000","isNewRecord":false,"remarks":"","createBy":"","createDate":"","updateBy":"cae38184ad7a4813a9d770d391949b26","updateDate":"2018-07-13 14:13:53","delFlag":"0","updateUser":{"id":"cae38184ad7a4813a9d770d391949b26","optime":"2018-07-02T02:17:33.000+0000","cname":"测试2","ename":"ceshi2","enable":"1","deleted":"0","password":"e10adc3949ba59abbe56e057f20f883e","departmentId":"674c984b9fda4e67be5b7940d96d91f5","departmentName":"吴堡县工业园区管理委员会党委","parentId":"674c984b9fda4e67be5b7940d96d91f5","code":"","sex":"1","mobile":"15236895645","telphone":"","email":"","address":"陕西汉中","note":"","photo":"","identityCard":"610322197712120311","mz":"13601","isTw":"0","csrq":"","xl":"13701","rylb":"","jrdzzrq":"","zwzsdyrq":"","gzgw":"13801","cjgzrq":"","jtzz":"","hyzk":"0","dagldwmc":"","przyjszwmc":"党务科长","xshjclx":"","yxqk":"","dypxqk":"","isNmg":"0","isSldy":"0","sljtqk":"","sqlxsj":"","isLddy":"0","wclx":"","wdcl":"","openId":"","paidCast":"1","isParty":"0","application":"","applicationName":"","type":"0","joinstate":"14301","qspm":"","zbpm":"","gblx":"","xj":"","score":"","actualDue":"0"},"purchasePrice":0,"memberId":"","msgContent":"十九大相关资料文件","msgAddress":"14206","msgAudit":"2","msgAuditTime":"2018-07-13 14:12:26","msgIsPublish":"1","msgPublishTime":"2018-07-13 14:12:33","claimMemberId":"cae38184ad7a4813a9d770d391949b26","claimStatus":"1","claimTime":"2018-07-13 14:13:32","msgOverStatue":"1","msgOverTime":"2018-07-13 14:13:53","cname":"徐志伟","mobile":"136795688558","isMyself":""}]
+         * last : false
+         * totalPages : 4
+         * totalElements : 4
+         * sort : [{"direction":"DESC","property":"optime","ignoreCase":false,"nullHandling":"NATIVE","ascending":false}]
          * numberOfElements : 1
+         * first : true
+         * size : 1
+         * number : 0
          */
 
         private boolean last;
-        private int totalElements;
         private int totalPages;
+        private int totalElements;
+        private int numberOfElements;
+        private boolean first;
         private int size;
         private int number;
-        private boolean first;
-        private int numberOfElements;
         private List<ContentBean> content;
         private List<SortBean> sort;
 
@@ -73,6 +74,14 @@ public class hdjlInfo {
             this.last = last;
         }
 
+        public int getTotalPages() {
+            return totalPages;
+        }
+
+        public void setTotalPages(int totalPages) {
+            this.totalPages = totalPages;
+        }
+
         public int getTotalElements() {
             return totalElements;
         }
@@ -81,12 +90,20 @@ public class hdjlInfo {
             this.totalElements = totalElements;
         }
 
-        public int getTotalPages() {
-            return totalPages;
+        public int getNumberOfElements() {
+            return numberOfElements;
         }
 
-        public void setTotalPages(int totalPages) {
-            this.totalPages = totalPages;
+        public void setNumberOfElements(int numberOfElements) {
+            this.numberOfElements = numberOfElements;
+        }
+
+        public boolean isFirst() {
+            return first;
+        }
+
+        public void setFirst(boolean first) {
+            this.first = first;
         }
 
         public int getSize() {
@@ -103,22 +120,6 @@ public class hdjlInfo {
 
         public void setNumber(int number) {
             this.number = number;
-        }
-
-        public boolean isFirst() {
-            return first;
-        }
-
-        public void setFirst(boolean first) {
-            this.first = first;
-        }
-
-        public int getNumberOfElements() {
-            return numberOfElements;
-        }
-
-        public void setNumberOfElements(int numberOfElements) {
-            this.numberOfElements = numberOfElements;
         }
 
         public List<ContentBean> getContent() {
@@ -139,109 +140,60 @@ public class hdjlInfo {
 
         public static class ContentBean {
             /**
-             * id : 50f0cfa592f24309b62066db5782dbae
-             * optime : 2018-04-25T09:27:12.000+0000
-             * modelId : d9c9b6b9adf04ae08997c3f7315344b9
-             * modelName :
-             * userName :
-             * userAge :
-             * userSex : 0
-             * userIDCard :
-             * userPhone :
-             * userEmail :
-             * userAddress :
-             * userIp : 127.0.0.1
-             * msgCode : 0
-             * msgTitle : 张三
-             * msgContent : 我的心愿我的心愿我的心愿我的心愿我的心愿我的心愿
+             * id : ce1e3b73b95149ab8b165e5c4db129c5
+             * optime : 2018-07-13T06:10:30.000+0000
+             * isNewRecord : false
+             * remarks :
+             * createBy :
+             * createDate :
+             * updateBy : cae38184ad7a4813a9d770d391949b26
+             * updateDate : 2018-07-13 14:13:53
+             * delFlag : 0
+             * updateUser : {"id":"cae38184ad7a4813a9d770d391949b26","optime":"2018-07-02T02:17:33.000+0000","cname":"测试2","ename":"ceshi2","enable":"1","deleted":"0","password":"e10adc3949ba59abbe56e057f20f883e","departmentId":"674c984b9fda4e67be5b7940d96d91f5","departmentName":"吴堡县工业园区管理委员会党委","parentId":"674c984b9fda4e67be5b7940d96d91f5","code":"","sex":"1","mobile":"15236895645","telphone":"","email":"","address":"陕西汉中","note":"","photo":"","identityCard":"610322197712120311","mz":"13601","isTw":"0","csrq":"","xl":"13701","rylb":"","jrdzzrq":"","zwzsdyrq":"","gzgw":"13801","cjgzrq":"","jtzz":"","hyzk":"0","dagldwmc":"","przyjszwmc":"党务科长","xshjclx":"","yxqk":"","dypxqk":"","isNmg":"0","isSldy":"0","sljtqk":"","sqlxsj":"","isLddy":"0","wclx":"","wdcl":"","openId":"","paidCast":"1","isParty":"0","application":"","applicationName":"","type":"0","joinstate":"14301","qspm":"","zbpm":"","gblx":"","xj":"","score":"","actualDue":"0"}
+             * purchasePrice : 0
+             * memberId :
+             * msgContent : 十九大相关资料文件
+             * msgAddress : 14206
+             * msgAudit : 2
+             * msgAuditTime : 2018-07-13 14:12:26
              * msgIsPublish : 1
-             * msgIsReply : 0
-             * msgDoContent :
-             * msgAddTime : 2018-04-25 17:27:12
-             * msgIsOpen : 0
-             * msgAcceptDtime :
-             * msgOverTime :
-             * msgNoAcceptDtime :
-             * msgNoAcceptOpin :
-             * msgZwwxDtime :
-             * msgZwwxOpin :
-             * submitDeptId :
-             * submitDeptName :
-             * msgDoDeptId :
-             * msgDoDeptName :
-             * sqGoalId :
-             * sqGoalName :
-             * msgFiltrateType : 0
-             * msgSelectPwd :
-             * msgStatus : 0
-             * superviseFlag : 0
-             * alarmFlag : 0
-             * timeoutFlag : 0
-             * timeLimit : 0
-             * hotReply :
-             * hotReplyName :
-             * xjpcFlag : 0
-             * delayFlag : 0
-             * delayAppFlag :
-             * flowInsId :
-             * flowInsAppState : 0
-             * msgFlag : 0
-             * degreeOfSatisfaction : 0
+             * msgPublishTime : 2018-07-13 14:12:33
+             * claimMemberId : cae38184ad7a4813a9d770d391949b26
+             * claimStatus : 1
+             * claimTime : 2018-07-13 14:13:32
+             * msgOverStatue : 1
+             * msgOverTime : 2018-07-13 14:13:53
+             * cname : 徐志伟
+             * mobile : 136795688558
+             * isMyself :
              */
 
             private String id;
             private String optime;
-            private String modelId;
-            private String modelName;
-            private String userName;
-            private String userAge;
-            private String userSex;
-            private String userIDCard;
-            private String userPhone;
-            private String userEmail;
-            private String userAddress;
-            private String userIp;
-            private String msgCode;
-            private String msgTitle;
+            private boolean isNewRecord;
+            private String remarks;
+            private String createBy;
+            private String createDate;
+            private String updateBy;
+            private String updateDate;
+            private String delFlag;
+            private UpdateUserBean updateUser;
+            private int purchasePrice;
+            private String memberId;
             private String msgContent;
+            private String msgAddress;
+            private String msgAudit;
+            private String msgAuditTime;
             private String msgIsPublish;
-            private String msgIsReply;
-            private String msgDoContent;
-            private String msgAddTime;
-            private String msgIsOpen;
-            private String msgAcceptDtime;
+            private String msgPublishTime;
+            private String claimMemberId;
+            private String claimStatus;
+            private String claimTime;
+            private String msgOverStatue;
             private String msgOverTime;
-            private String msgNoAcceptDtime;
-            private String msgNoAcceptOpin;
-            private String msgZwwxDtime;
-            private String msgZwwxOpin;
-            private String submitDeptId;
-            private String submitDeptName;
-            private String msgDoDeptId;
-            private String msgDoDeptName;
-            private String sqGoalId;
-            private String sqGoalName;
-            private String msgFiltrateType;
-            private String msgSelectPwd;
-            private String msgStatus;
-            private String superviseFlag;
-            private String alarmFlag;
-            private String timeoutFlag;
-            private String timeLimit;
-            private String hotReply;
-            private String hotReplyName;
-            private String xjpcFlag;
-            private String delayFlag;
-            private String delayAppFlag;
-            private String flowInsId;
-            private String flowInsAppState;
-            private String msgFlag;
-            private String degreeOfSatisfaction;
-
-            public ContentBean(String userName, String msgContent) {
-                this.userName = userName;
-                this.msgContent = msgContent;
-            }
+            private String cname;
+            private String mobile;
+            private String isMyself;
 
             public String getId() {
                 return id;
@@ -259,100 +211,84 @@ public class hdjlInfo {
                 this.optime = optime;
             }
 
-            public String getModelId() {
-                return modelId;
+            public boolean isIsNewRecord() {
+                return isNewRecord;
             }
 
-            public void setModelId(String modelId) {
-                this.modelId = modelId;
+            public void setIsNewRecord(boolean isNewRecord) {
+                this.isNewRecord = isNewRecord;
             }
 
-            public String getModelName() {
-                return modelName;
+            public String getRemarks() {
+                return remarks;
             }
 
-            public void setModelName(String modelName) {
-                this.modelName = modelName;
+            public void setRemarks(String remarks) {
+                this.remarks = remarks;
             }
 
-            public String getUserName() {
-                return userName;
+            public String getCreateBy() {
+                return createBy;
             }
 
-            public void setUserName(String userName) {
-                this.userName = userName;
+            public void setCreateBy(String createBy) {
+                this.createBy = createBy;
             }
 
-            public String getUserAge() {
-                return userAge;
+            public String getCreateDate() {
+                return createDate;
             }
 
-            public void setUserAge(String userAge) {
-                this.userAge = userAge;
+            public void setCreateDate(String createDate) {
+                this.createDate = createDate;
             }
 
-            public String getUserSex() {
-                return userSex;
+            public String getUpdateBy() {
+                return updateBy;
             }
 
-            public void setUserSex(String userSex) {
-                this.userSex = userSex;
+            public void setUpdateBy(String updateBy) {
+                this.updateBy = updateBy;
             }
 
-            public String getUserIDCard() {
-                return userIDCard;
+            public String getUpdateDate() {
+                return updateDate;
             }
 
-            public void setUserIDCard(String userIDCard) {
-                this.userIDCard = userIDCard;
+            public void setUpdateDate(String updateDate) {
+                this.updateDate = updateDate;
             }
 
-            public String getUserPhone() {
-                return userPhone;
+            public String getDelFlag() {
+                return delFlag;
             }
 
-            public void setUserPhone(String userPhone) {
-                this.userPhone = userPhone;
+            public void setDelFlag(String delFlag) {
+                this.delFlag = delFlag;
             }
 
-            public String getUserEmail() {
-                return userEmail;
+            public UpdateUserBean getUpdateUser() {
+                return updateUser;
             }
 
-            public void setUserEmail(String userEmail) {
-                this.userEmail = userEmail;
+            public void setUpdateUser(UpdateUserBean updateUser) {
+                this.updateUser = updateUser;
             }
 
-            public String getUserAddress() {
-                return userAddress;
+            public int getPurchasePrice() {
+                return purchasePrice;
             }
 
-            public void setUserAddress(String userAddress) {
-                this.userAddress = userAddress;
+            public void setPurchasePrice(int purchasePrice) {
+                this.purchasePrice = purchasePrice;
             }
 
-            public String getUserIp() {
-                return userIp;
+            public String getMemberId() {
+                return memberId;
             }
 
-            public void setUserIp(String userIp) {
-                this.userIp = userIp;
-            }
-
-            public String getMsgCode() {
-                return msgCode;
-            }
-
-            public void setMsgCode(String msgCode) {
-                this.msgCode = msgCode;
-            }
-
-            public String getMsgTitle() {
-                return msgTitle;
-            }
-
-            public void setMsgTitle(String msgTitle) {
-                this.msgTitle = msgTitle;
+            public void setMemberId(String memberId) {
+                this.memberId = memberId;
             }
 
             public String getMsgContent() {
@@ -363,6 +299,30 @@ public class hdjlInfo {
                 this.msgContent = msgContent;
             }
 
+            public String getMsgAddress() {
+                return msgAddress;
+            }
+
+            public void setMsgAddress(String msgAddress) {
+                this.msgAddress = msgAddress;
+            }
+
+            public String getMsgAudit() {
+                return msgAudit;
+            }
+
+            public void setMsgAudit(String msgAudit) {
+                this.msgAudit = msgAudit;
+            }
+
+            public String getMsgAuditTime() {
+                return msgAuditTime;
+            }
+
+            public void setMsgAuditTime(String msgAuditTime) {
+                this.msgAuditTime = msgAuditTime;
+            }
+
             public String getMsgIsPublish() {
                 return msgIsPublish;
             }
@@ -371,44 +331,44 @@ public class hdjlInfo {
                 this.msgIsPublish = msgIsPublish;
             }
 
-            public String getMsgIsReply() {
-                return msgIsReply;
+            public String getMsgPublishTime() {
+                return msgPublishTime;
             }
 
-            public void setMsgIsReply(String msgIsReply) {
-                this.msgIsReply = msgIsReply;
+            public void setMsgPublishTime(String msgPublishTime) {
+                this.msgPublishTime = msgPublishTime;
             }
 
-            public String getMsgDoContent() {
-                return msgDoContent;
+            public String getClaimMemberId() {
+                return claimMemberId;
             }
 
-            public void setMsgDoContent(String msgDoContent) {
-                this.msgDoContent = msgDoContent;
+            public void setClaimMemberId(String claimMemberId) {
+                this.claimMemberId = claimMemberId;
             }
 
-            public String getMsgAddTime() {
-                return msgAddTime;
+            public String getClaimStatus() {
+                return claimStatus;
             }
 
-            public void setMsgAddTime(String msgAddTime) {
-                this.msgAddTime = msgAddTime;
+            public void setClaimStatus(String claimStatus) {
+                this.claimStatus = claimStatus;
             }
 
-            public String getMsgIsOpen() {
-                return msgIsOpen;
+            public String getClaimTime() {
+                return claimTime;
             }
 
-            public void setMsgIsOpen(String msgIsOpen) {
-                this.msgIsOpen = msgIsOpen;
+            public void setClaimTime(String claimTime) {
+                this.claimTime = claimTime;
             }
 
-            public String getMsgAcceptDtime() {
-                return msgAcceptDtime;
+            public String getMsgOverStatue() {
+                return msgOverStatue;
             }
 
-            public void setMsgAcceptDtime(String msgAcceptDtime) {
-                this.msgAcceptDtime = msgAcceptDtime;
+            public void setMsgOverStatue(String msgOverStatue) {
+                this.msgOverStatue = msgOverStatue;
             }
 
             public String getMsgOverTime() {
@@ -419,219 +379,591 @@ public class hdjlInfo {
                 this.msgOverTime = msgOverTime;
             }
 
-            public String getMsgNoAcceptDtime() {
-                return msgNoAcceptDtime;
+            public String getCname() {
+                return cname;
             }
 
-            public void setMsgNoAcceptDtime(String msgNoAcceptDtime) {
-                this.msgNoAcceptDtime = msgNoAcceptDtime;
+            public void setCname(String cname) {
+                this.cname = cname;
             }
 
-            public String getMsgNoAcceptOpin() {
-                return msgNoAcceptOpin;
+            public String getMobile() {
+                return mobile;
             }
 
-            public void setMsgNoAcceptOpin(String msgNoAcceptOpin) {
-                this.msgNoAcceptOpin = msgNoAcceptOpin;
+            public void setMobile(String mobile) {
+                this.mobile = mobile;
             }
 
-            public String getMsgZwwxDtime() {
-                return msgZwwxDtime;
+            public String getIsMyself() {
+                return isMyself;
             }
 
-            public void setMsgZwwxDtime(String msgZwwxDtime) {
-                this.msgZwwxDtime = msgZwwxDtime;
+            public void setIsMyself(String isMyself) {
+                this.isMyself = isMyself;
             }
 
-            public String getMsgZwwxOpin() {
-                return msgZwwxOpin;
-            }
+            public static class UpdateUserBean {
+                /**
+                 * id : cae38184ad7a4813a9d770d391949b26
+                 * optime : 2018-07-02T02:17:33.000+0000
+                 * cname : 测试2
+                 * ename : ceshi2
+                 * enable : 1
+                 * deleted : 0
+                 * password : e10adc3949ba59abbe56e057f20f883e
+                 * departmentId : 674c984b9fda4e67be5b7940d96d91f5
+                 * departmentName : 吴堡县工业园区管理委员会党委
+                 * parentId : 674c984b9fda4e67be5b7940d96d91f5
+                 * code :
+                 * sex : 1
+                 * mobile : 15236895645
+                 * telphone :
+                 * email :
+                 * address : 陕西汉中
+                 * note :
+                 * photo :
+                 * identityCard : 610322197712120311
+                 * mz : 13601
+                 * isTw : 0
+                 * csrq :
+                 * xl : 13701
+                 * rylb :
+                 * jrdzzrq :
+                 * zwzsdyrq :
+                 * gzgw : 13801
+                 * cjgzrq :
+                 * jtzz :
+                 * hyzk : 0
+                 * dagldwmc :
+                 * przyjszwmc : 党务科长
+                 * xshjclx :
+                 * yxqk :
+                 * dypxqk :
+                 * isNmg : 0
+                 * isSldy : 0
+                 * sljtqk :
+                 * sqlxsj :
+                 * isLddy : 0
+                 * wclx :
+                 * wdcl :
+                 * openId :
+                 * paidCast : 1
+                 * isParty : 0
+                 * application :
+                 * applicationName :
+                 * type : 0
+                 * joinstate : 14301
+                 * qspm :
+                 * zbpm :
+                 * gblx :
+                 * xj :
+                 * score :
+                 * actualDue : 0
+                 */
 
-            public void setMsgZwwxOpin(String msgZwwxOpin) {
-                this.msgZwwxOpin = msgZwwxOpin;
-            }
+                private String id;
+                private String optime;
+                private String cname;
+                private String ename;
+                private String enable;
+                private String deleted;
+                private String password;
+                private String departmentId;
+                private String departmentName;
+                private String parentId;
+                private String code;
+                private String sex;
+                private String mobile;
+                private String telphone;
+                private String email;
+                private String address;
+                private String note;
+                private String photo;
+                private String identityCard;
+                private String mz;
+                private String isTw;
+                private String csrq;
+                private String xl;
+                private String rylb;
+                private String jrdzzrq;
+                private String zwzsdyrq;
+                private String gzgw;
+                private String cjgzrq;
+                private String jtzz;
+                private String hyzk;
+                private String dagldwmc;
+                private String przyjszwmc;
+                private String xshjclx;
+                private String yxqk;
+                private String dypxqk;
+                private String isNmg;
+                private String isSldy;
+                private String sljtqk;
+                private String sqlxsj;
+                private String isLddy;
+                private String wclx;
+                private String wdcl;
+                private String openId;
+                private String paidCast;
+                private String isParty;
+                private String application;
+                private String applicationName;
+                private String type;
+                private String joinstate;
+                private String qspm;
+                private String zbpm;
+                private String gblx;
+                private String xj;
+                private String score;
+                private String actualDue;
 
-            public String getSubmitDeptId() {
-                return submitDeptId;
-            }
+                public String getId() {
+                    return id;
+                }
 
-            public void setSubmitDeptId(String submitDeptId) {
-                this.submitDeptId = submitDeptId;
-            }
+                public void setId(String id) {
+                    this.id = id;
+                }
 
-            public String getSubmitDeptName() {
-                return submitDeptName;
-            }
+                public String getOptime() {
+                    return optime;
+                }
 
-            public void setSubmitDeptName(String submitDeptName) {
-                this.submitDeptName = submitDeptName;
-            }
+                public void setOptime(String optime) {
+                    this.optime = optime;
+                }
 
-            public String getMsgDoDeptId() {
-                return msgDoDeptId;
-            }
+                public String getCname() {
+                    return cname;
+                }
 
-            public void setMsgDoDeptId(String msgDoDeptId) {
-                this.msgDoDeptId = msgDoDeptId;
-            }
+                public void setCname(String cname) {
+                    this.cname = cname;
+                }
 
-            public String getMsgDoDeptName() {
-                return msgDoDeptName;
-            }
+                public String getEname() {
+                    return ename;
+                }
 
-            public void setMsgDoDeptName(String msgDoDeptName) {
-                this.msgDoDeptName = msgDoDeptName;
-            }
+                public void setEname(String ename) {
+                    this.ename = ename;
+                }
 
-            public String getSqGoalId() {
-                return sqGoalId;
-            }
+                public String getEnable() {
+                    return enable;
+                }
 
-            public void setSqGoalId(String sqGoalId) {
-                this.sqGoalId = sqGoalId;
-            }
+                public void setEnable(String enable) {
+                    this.enable = enable;
+                }
 
-            public String getSqGoalName() {
-                return sqGoalName;
-            }
+                public String getDeleted() {
+                    return deleted;
+                }
 
-            public void setSqGoalName(String sqGoalName) {
-                this.sqGoalName = sqGoalName;
-            }
+                public void setDeleted(String deleted) {
+                    this.deleted = deleted;
+                }
 
-            public String getMsgFiltrateType() {
-                return msgFiltrateType;
-            }
+                public String getPassword() {
+                    return password;
+                }
 
-            public void setMsgFiltrateType(String msgFiltrateType) {
-                this.msgFiltrateType = msgFiltrateType;
-            }
+                public void setPassword(String password) {
+                    this.password = password;
+                }
 
-            public String getMsgSelectPwd() {
-                return msgSelectPwd;
-            }
+                public String getDepartmentId() {
+                    return departmentId;
+                }
 
-            public void setMsgSelectPwd(String msgSelectPwd) {
-                this.msgSelectPwd = msgSelectPwd;
-            }
+                public void setDepartmentId(String departmentId) {
+                    this.departmentId = departmentId;
+                }
 
-            public String getMsgStatus() {
-                return msgStatus;
-            }
+                public String getDepartmentName() {
+                    return departmentName;
+                }
 
-            public void setMsgStatus(String msgStatus) {
-                this.msgStatus = msgStatus;
-            }
+                public void setDepartmentName(String departmentName) {
+                    this.departmentName = departmentName;
+                }
 
-            public String getSuperviseFlag() {
-                return superviseFlag;
-            }
+                public String getParentId() {
+                    return parentId;
+                }
 
-            public void setSuperviseFlag(String superviseFlag) {
-                this.superviseFlag = superviseFlag;
-            }
+                public void setParentId(String parentId) {
+                    this.parentId = parentId;
+                }
 
-            public String getAlarmFlag() {
-                return alarmFlag;
-            }
+                public String getCode() {
+                    return code;
+                }
 
-            public void setAlarmFlag(String alarmFlag) {
-                this.alarmFlag = alarmFlag;
-            }
+                public void setCode(String code) {
+                    this.code = code;
+                }
 
-            public String getTimeoutFlag() {
-                return timeoutFlag;
-            }
+                public String getSex() {
+                    return sex;
+                }
 
-            public void setTimeoutFlag(String timeoutFlag) {
-                this.timeoutFlag = timeoutFlag;
-            }
+                public void setSex(String sex) {
+                    this.sex = sex;
+                }
 
-            public String getTimeLimit() {
-                return timeLimit;
-            }
+                public String getMobile() {
+                    return mobile;
+                }
 
-            public void setTimeLimit(String timeLimit) {
-                this.timeLimit = timeLimit;
-            }
+                public void setMobile(String mobile) {
+                    this.mobile = mobile;
+                }
 
-            public String getHotReply() {
-                return hotReply;
-            }
+                public String getTelphone() {
+                    return telphone;
+                }
 
-            public void setHotReply(String hotReply) {
-                this.hotReply = hotReply;
-            }
+                public void setTelphone(String telphone) {
+                    this.telphone = telphone;
+                }
 
-            public String getHotReplyName() {
-                return hotReplyName;
-            }
+                public String getEmail() {
+                    return email;
+                }
 
-            public void setHotReplyName(String hotReplyName) {
-                this.hotReplyName = hotReplyName;
-            }
+                public void setEmail(String email) {
+                    this.email = email;
+                }
 
-            public String getXjpcFlag() {
-                return xjpcFlag;
-            }
+                public String getAddress() {
+                    return address;
+                }
 
-            public void setXjpcFlag(String xjpcFlag) {
-                this.xjpcFlag = xjpcFlag;
-            }
+                public void setAddress(String address) {
+                    this.address = address;
+                }
 
-            public String getDelayFlag() {
-                return delayFlag;
-            }
+                public String getNote() {
+                    return note;
+                }
 
-            public void setDelayFlag(String delayFlag) {
-                this.delayFlag = delayFlag;
-            }
+                public void setNote(String note) {
+                    this.note = note;
+                }
 
-            public String getDelayAppFlag() {
-                return delayAppFlag;
-            }
+                public String getPhoto() {
+                    return photo;
+                }
 
-            public void setDelayAppFlag(String delayAppFlag) {
-                this.delayAppFlag = delayAppFlag;
-            }
+                public void setPhoto(String photo) {
+                    this.photo = photo;
+                }
 
-            public String getFlowInsId() {
-                return flowInsId;
-            }
+                public String getIdentityCard() {
+                    return identityCard;
+                }
 
-            public void setFlowInsId(String flowInsId) {
-                this.flowInsId = flowInsId;
-            }
+                public void setIdentityCard(String identityCard) {
+                    this.identityCard = identityCard;
+                }
 
-            public String getFlowInsAppState() {
-                return flowInsAppState;
-            }
+                public String getMz() {
+                    return mz;
+                }
 
-            public void setFlowInsAppState(String flowInsAppState) {
-                this.flowInsAppState = flowInsAppState;
-            }
+                public void setMz(String mz) {
+                    this.mz = mz;
+                }
 
-            public String getMsgFlag() {
-                return msgFlag;
-            }
+                public String getIsTw() {
+                    return isTw;
+                }
 
-            public void setMsgFlag(String msgFlag) {
-                this.msgFlag = msgFlag;
-            }
+                public void setIsTw(String isTw) {
+                    this.isTw = isTw;
+                }
 
-            public String getDegreeOfSatisfaction() {
-                return degreeOfSatisfaction;
-            }
+                public String getCsrq() {
+                    return csrq;
+                }
 
-            public void setDegreeOfSatisfaction(String degreeOfSatisfaction) {
-                this.degreeOfSatisfaction = degreeOfSatisfaction;
+                public void setCsrq(String csrq) {
+                    this.csrq = csrq;
+                }
+
+                public String getXl() {
+                    return xl;
+                }
+
+                public void setXl(String xl) {
+                    this.xl = xl;
+                }
+
+                public String getRylb() {
+                    return rylb;
+                }
+
+                public void setRylb(String rylb) {
+                    this.rylb = rylb;
+                }
+
+                public String getJrdzzrq() {
+                    return jrdzzrq;
+                }
+
+                public void setJrdzzrq(String jrdzzrq) {
+                    this.jrdzzrq = jrdzzrq;
+                }
+
+                public String getZwzsdyrq() {
+                    return zwzsdyrq;
+                }
+
+                public void setZwzsdyrq(String zwzsdyrq) {
+                    this.zwzsdyrq = zwzsdyrq;
+                }
+
+                public String getGzgw() {
+                    return gzgw;
+                }
+
+                public void setGzgw(String gzgw) {
+                    this.gzgw = gzgw;
+                }
+
+                public String getCjgzrq() {
+                    return cjgzrq;
+                }
+
+                public void setCjgzrq(String cjgzrq) {
+                    this.cjgzrq = cjgzrq;
+                }
+
+                public String getJtzz() {
+                    return jtzz;
+                }
+
+                public void setJtzz(String jtzz) {
+                    this.jtzz = jtzz;
+                }
+
+                public String getHyzk() {
+                    return hyzk;
+                }
+
+                public void setHyzk(String hyzk) {
+                    this.hyzk = hyzk;
+                }
+
+                public String getDagldwmc() {
+                    return dagldwmc;
+                }
+
+                public void setDagldwmc(String dagldwmc) {
+                    this.dagldwmc = dagldwmc;
+                }
+
+                public String getPrzyjszwmc() {
+                    return przyjszwmc;
+                }
+
+                public void setPrzyjszwmc(String przyjszwmc) {
+                    this.przyjszwmc = przyjszwmc;
+                }
+
+                public String getXshjclx() {
+                    return xshjclx;
+                }
+
+                public void setXshjclx(String xshjclx) {
+                    this.xshjclx = xshjclx;
+                }
+
+                public String getYxqk() {
+                    return yxqk;
+                }
+
+                public void setYxqk(String yxqk) {
+                    this.yxqk = yxqk;
+                }
+
+                public String getDypxqk() {
+                    return dypxqk;
+                }
+
+                public void setDypxqk(String dypxqk) {
+                    this.dypxqk = dypxqk;
+                }
+
+                public String getIsNmg() {
+                    return isNmg;
+                }
+
+                public void setIsNmg(String isNmg) {
+                    this.isNmg = isNmg;
+                }
+
+                public String getIsSldy() {
+                    return isSldy;
+                }
+
+                public void setIsSldy(String isSldy) {
+                    this.isSldy = isSldy;
+                }
+
+                public String getSljtqk() {
+                    return sljtqk;
+                }
+
+                public void setSljtqk(String sljtqk) {
+                    this.sljtqk = sljtqk;
+                }
+
+                public String getSqlxsj() {
+                    return sqlxsj;
+                }
+
+                public void setSqlxsj(String sqlxsj) {
+                    this.sqlxsj = sqlxsj;
+                }
+
+                public String getIsLddy() {
+                    return isLddy;
+                }
+
+                public void setIsLddy(String isLddy) {
+                    this.isLddy = isLddy;
+                }
+
+                public String getWclx() {
+                    return wclx;
+                }
+
+                public void setWclx(String wclx) {
+                    this.wclx = wclx;
+                }
+
+                public String getWdcl() {
+                    return wdcl;
+                }
+
+                public void setWdcl(String wdcl) {
+                    this.wdcl = wdcl;
+                }
+
+                public String getOpenId() {
+                    return openId;
+                }
+
+                public void setOpenId(String openId) {
+                    this.openId = openId;
+                }
+
+                public String getPaidCast() {
+                    return paidCast;
+                }
+
+                public void setPaidCast(String paidCast) {
+                    this.paidCast = paidCast;
+                }
+
+                public String getIsParty() {
+                    return isParty;
+                }
+
+                public void setIsParty(String isParty) {
+                    this.isParty = isParty;
+                }
+
+                public String getApplication() {
+                    return application;
+                }
+
+                public void setApplication(String application) {
+                    this.application = application;
+                }
+
+                public String getApplicationName() {
+                    return applicationName;
+                }
+
+                public void setApplicationName(String applicationName) {
+                    this.applicationName = applicationName;
+                }
+
+                public String getType() {
+                    return type;
+                }
+
+                public void setType(String type) {
+                    this.type = type;
+                }
+
+                public String getJoinstate() {
+                    return joinstate;
+                }
+
+                public void setJoinstate(String joinstate) {
+                    this.joinstate = joinstate;
+                }
+
+                public String getQspm() {
+                    return qspm;
+                }
+
+                public void setQspm(String qspm) {
+                    this.qspm = qspm;
+                }
+
+                public String getZbpm() {
+                    return zbpm;
+                }
+
+                public void setZbpm(String zbpm) {
+                    this.zbpm = zbpm;
+                }
+
+                public String getGblx() {
+                    return gblx;
+                }
+
+                public void setGblx(String gblx) {
+                    this.gblx = gblx;
+                }
+
+                public String getXj() {
+                    return xj;
+                }
+
+                public void setXj(String xj) {
+                    this.xj = xj;
+                }
+
+                public String getScore() {
+                    return score;
+                }
+
+                public void setScore(String score) {
+                    this.score = score;
+                }
+
+                public String getActualDue() {
+                    return actualDue;
+                }
+
+                public void setActualDue(String actualDue) {
+                    this.actualDue = actualDue;
+                }
             }
         }
 
         public static class SortBean {
             /**
              * direction : DESC
-             * property : msgAddTime
+             * property : optime
              * ignoreCase : false
              * nullHandling : NATIVE
              * ascending : false

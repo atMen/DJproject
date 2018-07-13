@@ -31,6 +31,8 @@ import com.wc.dragphoto.widget.DragPhotoView;
 import java.util.ArrayList;
 
 import customer.tcrj.com.djproject.R;
+import customer.tcrj.com.djproject.Utils.ShowImageUtils;
+import customer.tcrj.com.djproject.net.ApiConstants;
 
 /**
  * 图片展示界面
@@ -258,14 +260,14 @@ public class ImageShowActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(url)) {
             return;
         }
-        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        imageView.setAdjustViewBounds(true);
-        Glide.with(this).load(url)
-                .dontAnimate()
-                .placeholder(R.mipmap.ic_loding)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .error(R.mipmap.ic_loding_error)
-                .into(imageView);
+//        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+//        imageView.setAdjustViewBounds(true);
+        Glide.with(this).load(url).into(imageView);
+//        Glide.with(this).load(url)
+//                .placeholder(R.mipmap.ic_loding)
+//                .error(R.mipmap.ic_loding_error)
+//                .into(imageView);
+//        ShowImageUtils.showImageView(this,url,imageView,R.drawable.ic_placeholder);
 //        Picasso.with(this).load(url)
 //                .error(R.mipmap.ic_loding_error)
 //                .into(imageView);

@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.githang.statusbar.StatusBarCompat;
 import com.tsy.sdk.myokhttp.MyOkHttp;
 import com.tsy.sdk.myokhttp.response.GsonResponseHandler;
 import com.xiao.nicevideoplayer.NiceVideoPlayer;
@@ -91,7 +92,15 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
     }
 
     @Override
+    protected void setStatusBar() {
+
+    }
+
+    @Override
     protected void setView() {
+
+
+
         loginInfo = (Entity) ACache.get(this).getAsObject("loginInfo");
         file = getIntent().getStringExtra("file");
         filename = getIntent().getStringExtra("fileName");
@@ -329,9 +338,9 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
     private void toPL(String s) {
 //        {"memberId":"8ef0da67b0ee4d98ad70b91c2f653617","courseId":"663a0a3b759648748467d793ab0a467e","coursewareId":"e229809ead984abfa02e1555912e3bb4","content":"测试测试测试测试"}
         JSONObject jsonObject = new JSONObject();
-        Log.e("TAG","memberId:"+loginInfo.getData().getId()+"---coursewareId:"+memberId+"---courseId:"+courseId+"---content:"+s);
+        Log.e("TAG","memberId:"+loginInfo.getData().getData().getId()+"---coursewareId:"+memberId+"---courseId:"+courseId+"---content:"+s);
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", courseId);
             jsonObject.put("courseId", memberId);
             jsonObject.put("content", s);
@@ -643,7 +652,7 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
         showLoadingDialog("正在保存学习进度");
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", courseId);
             jsonObject.put("playTime", Current/1000);
             jsonObject.put("studyState", result);

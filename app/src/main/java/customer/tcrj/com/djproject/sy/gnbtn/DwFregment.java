@@ -37,8 +37,8 @@ public class DwFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
     //    @BindView(R.id.btnback)
 //    public ImageView btnback;
 //
-//    @BindView(R.id.txtTitle)
-//    public TextView title_tv;
+//  @BindView(R.id.txtTitle)
+//  public TextView title_tv;
     @BindView(R.id.recycler_view)
     public RecyclerView mRecyclerView;
     @BindView(R.id.mPtrFrameLayout)
@@ -153,8 +153,6 @@ public class DwFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
                             }
 
                         }
-
-
 
                     }
                 });

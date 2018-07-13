@@ -54,7 +54,7 @@ public class YpFregment extends BaseFragment implements  BaseQuickAdapter.OnItem
     private YplistviewAdapter detailAdapter;
     private List<kjInfo.DataBean.ContentBean> beanList;
 
-
+    String userId;
     private int pageNum = 1;
     private boolean canPull = true;
     Entity loginInfo = null;
@@ -71,7 +71,7 @@ public class YpFregment extends BaseFragment implements  BaseQuickAdapter.OnItem
     @Override
     protected void setView() {
         loginInfo = (Entity) ACache.get(mContext).getAsObject("loginInfo");
-        String userId = loginInfo.getData().getId();
+         userId = loginInfo.getData().getData().getId();
 
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         mPtrFrameLayout.disableWhenHorizontalMove(true);
@@ -127,13 +127,12 @@ public class YpFregment extends BaseFragment implements  BaseQuickAdapter.OnItem
 
     //获取网络数据
     private void getData(final int num) {
-        Log.e("TAG","courseid:"+id+"--userid:"+loginInfo.getData().getId());
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("page", num+"");
             jsonObject.put("size", "30");
             jsonObject.put("courseId", id);
-            jsonObject.put("memberId", loginInfo.getData().getId());
+            jsonObject.put("memberId", userId);
             jsonObject.put("type", "13305");
         } catch (JSONException e) {
             e.printStackTrace();
