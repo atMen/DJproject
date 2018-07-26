@@ -11,6 +11,8 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,6 +37,7 @@ public class NewsDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.red), true);
         response = (picInfo.DataBean) getIntent().getSerializableExtra("picInfo");
         initView();
         getData();

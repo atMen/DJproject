@@ -33,8 +33,13 @@
                     />
 
                 <TextView
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/more_background"
                     android:id="@+id/more"
-                    android:padding="8dp"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"

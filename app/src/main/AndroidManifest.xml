@@ -24,6 +24,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar1"
         tools:replace="android:icon, android:theme">
+
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="f6e643344b963c790b674a7eff800180" >
+        </meta-data>
+
+
         <activity
             android:name=".LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

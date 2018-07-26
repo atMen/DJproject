@@ -206,8 +206,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                 .enqueue(new GsonResponseHandler<picInfo>() {
                     @Override
                     public void onFailure(int statusCode, String error_msg) {
-
-
                         Toast.makeText(mContext, "服务器连接错误", Toast.LENGTH_SHORT).show();
                         Log.e("TAG","msg"+statusCode);
                     }
@@ -222,14 +220,19 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                             Log.e("TAG","bannerList"+bannerList.size());
                             if(bannerList.size()>0 ){
 
-                                for(int i = 0;i < bannerList.size(); i++){
-                                    titles.add(bannerList.get(i).getTitle());
+                                for(int i = 0;i < response.getData().size(); i++){
 
-                                    Log.e("TAG","msg"+bannerList.get(i).getThumbUrl());
+                                    if(!("".equals(bannerList.get(i).getThumbUrl()))){
+                                        titles.add(bannerList.get(i).getTitle());
+                                        Log.e("TAG","titles"+bannerList.get(i).getTitle());
+                                    }else {
+                                        bannerList.remove(i);
+                                    }
+
+//                                    Log.e("TAG","msg"+bannerList.get(i).getThumbUrl());
                                 }
                                 setBannerData(bannerList);
                             }
-
 
                         }
                     }
@@ -240,6 +243,7 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
     private void setBannerData(List<picInfo.DataBean> bannerList) {
 
+        Log.e("TAG","bannerList"+bannerList.size());
         banner.setImages(bannerList)
                 .setBannerTitles(titles)
                 .setImageLoader(new GlideImageLoader())

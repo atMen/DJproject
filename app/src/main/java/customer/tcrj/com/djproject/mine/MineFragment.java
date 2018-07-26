@@ -218,7 +218,6 @@ private void setUserInfo(Entity response) {
                 if(myPromise == null && "".equals(myPromise)){
                     Toast.makeText(mContext, "没有承诺信息", Toast.LENGTH_SHORT).show();
                 }else {
-
                     Log.e("TAG","cn:"+data.getMyPromise());
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("cn",data);

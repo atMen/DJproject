@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -305,6 +306,7 @@ public class ksActivity extends BaseActivity {
 
         Object insertObj = new Object(){
 
+            @JavascriptInterface
             public void T(final String t){//js调用java Toast方法
 
                 runOnUiThread(new Runnable() {
@@ -315,11 +317,13 @@ public class ksActivity extends BaseActivity {
 
             }
 
+            @JavascriptInterface
             public String getUserID(){//js调用java Toast方法
                 Toast.makeText(ksActivity.this, loginInfo.getData().getData().getId(), Toast.LENGTH_SHORT).show();
                         return loginInfo.getData().getData().getId();
             }
 
+            @JavascriptInterface
             public void back() {
 
                     finish();

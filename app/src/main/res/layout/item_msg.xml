@@ -37,7 +37,8 @@
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="十九大代表风采录"
+                    android:text=""
+                    android:lines="1"
                     android:textColor="@color/black"
                     />
 

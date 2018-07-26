@@ -52,7 +52,14 @@ public class DkAdapter extends BaseQuickAdapter<dkInfo.DataBean.ContentBean, Bas
         }else if(sex1.equals("0")){
             sex.setText("性别：女");
         }
-        duty.setText("职务："+item.getDuty());
+
+        String duty1 = item.getDuty();
+        if(duty1 != null){
+            duty.setText("职务："+item.getDuty());
+        }else {
+            duty.setText("职务：");
+        }
+
     }
 
 

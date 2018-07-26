@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -38,6 +39,7 @@ public class ksdtActivity extends BaseActivity {
         loginInfo = (Entity) ACache.get(this).getAsObject("loginInfo");
         url = getIntent().getStringExtra("url");
 
+        Log.e("TAG","答题URL:"+url);
         // 设置WebViewClient
         mWebView.setWebViewClient(new WebViewClient() {
             // url拦截
@@ -299,6 +301,8 @@ public class ksdtActivity extends BaseActivity {
 
         Object insertObj = new Object(){
 
+
+            @JavascriptInterface
             public void T(final String t){//js调用java Toast方法
 
                 runOnUiThread(new Runnable() {
@@ -309,15 +313,17 @@ public class ksdtActivity extends BaseActivity {
 
             }
 
+            @JavascriptInterface
             public String getUserID(){//js调用java Toast方法
                 Toast.makeText(ksdtActivity.this, loginInfo.getData().getData().getId(), Toast.LENGTH_SHORT).show();
                         return loginInfo.getData().getData().getId();
             }
 
+
+            @JavascriptInterface
             public void back() {
 
                     finish();
-
             }
 
         };

@@ -125,8 +125,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 //        getData(pageNum);
     }
 
-    private String finish = "http://192.168.20.176:8888/yldj-cms/app/learn/getFinshExamList";
-    private String start = "http://192.168.20.176:8888/yldj-cms/app/learn/getStartExamList";
+
 
     //获取网络数据
     private void getData(final int num) {
@@ -146,7 +145,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 
 
         mMyOkhttp.post()
-                .url( (type.equals("0"))? ApiConstants.examyklistApi : ApiConstants.examwklistApi )
+                .url( (type.equals("0"))? ApiConstants.examyklistApi : ApiConstants.examwklistApi)
                 .jsonParams(jsonObject.toString())
                 .tag(this)
             .enqueue(new GsonResponseHandler<zxdtInfo>() {
@@ -304,8 +303,8 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
                 if(response.getStartTime() != null && response.getStartTime().equals("1")){
                     Toast.makeText(this, "正在阅卷,请稍后查看", Toast.LENGTH_SHORT).show();
                 }else {
-                    bundle1.putString("url",ApiConstants.h5examApi+"memberId="+loginInfo.getData().getData().getId()+"&examId="+response.getId());
-//                bundle1.putString("url",ApiConstants.h5examApi+"?examId="+response.getId()+"&memberId="+loginInfo.getData().getId());
+                    bundle1.putString("url",ApiConstants.h5examApi+"?memberId="+loginInfo.getData().getData().getId()+"&examId="+response.getId());
+//                bundle1.putString("url",ApiConstants.h5examApi);
                     toClass(this,ksdtActivity.class,bundle1);
                 }
 

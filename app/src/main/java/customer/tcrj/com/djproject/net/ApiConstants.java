@@ -8,24 +8,22 @@ package customer.tcrj.com.djproject.net;
 public class ApiConstants {
 
 
-//外网
-    private static final String URLROOT = "http://113.200.26.66:1122/app/";
-    public static final String ImageURLROOT = "http://113.200.26.66:1122/web.files";
-    public static final String FileURLROOT = "http://113.200.26.66:1122/web.files";
-    public static final String TXImageURLROOT = "http://113.200.26.66:1122";
+    /**
+     * 外网 http://111.21.32.158:8000
+     */
+    public static final String TXImageURLROOT = "http://111.21.32.158:1122";
+    private static final String URLROOT = TXImageURLROOT+"/app/";
+    public static final String ImageURLROOT = TXImageURLROOT+"/web.files";
+    public static final String FileURLROOT = TXImageURLROOT+"/web.files";
 
+//    /**
+//     * 内网
+//     */
+//    public static final String TXImageURLROOT = "http://192.168.10.26:9134";
+//    private static final String URLROOT = TXImageURLROOT+"/app/";
+//    public static final String ImageURLROOT = TXImageURLROOT+"/web.files";
+//    public static final String FileURLROOT = TXImageURLROOT+"/web.files";
 
-//何俊
-//    private static final String URLROOT = "http://192.168.20.201:8080/yldj-cms/app/
-// ";
-//    public static final String ImageURLROOT = "http://192.168.20.201:8080/web.files";
-//    public static final String FileURLROOT = "http://192.168.20.201:8080/web.files";
-
-//刘彤
-//    public static final String URLROOT = "http://192.168.10.27:9134/app/";
-//    public static final String FileURLROOT = "http://192.168.10.27:9134/web.files";
-//    public static final String ImageURLROOT = "http://192.168.10.27:9134/web.files";
-//    public static final String TXImageURLROOT = "http://192.168.10.27:9134";
     /**
      * 登录
      */
@@ -165,6 +163,6 @@ public class ApiConstants {
      */
     public static final String h5hdjlApi = URLROOT+"hdjl.chtml";
     public static final String h5examApi = URLROOT+"exam.chtml";
-    public static final String h5yyj = "http://113.200.26.66:1122/wechat/examstack/exam/myExam.chtml";
+    public static final String h5yyj = TXImageURLROOT+"/wechat/examstack/exam/myExam.chtml";
 
 }

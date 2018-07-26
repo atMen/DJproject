@@ -279,7 +279,6 @@ public class wjdcListActivity extends BaseActivity implements FreshNewsAdapter.O
         wjdcInfo.DataBean.ContentBean response = (wjdcInfo.DataBean.ContentBean) adapter.getItem(position);
 //        Bundle bundle = new Bundle();
 //        bundle.putSerializable("teacherinfo",response);
-        Log.e("TAG","h5:"+"http://192.168.20.201:8080/yldj-cms/app/hdjl.chtml"+"?voteId="+response.getId());
         Bundle bundle1 = new Bundle();
         bundle1.putString("url",ApiConstants.h5hdjlApi+"?voteId="+response.getId());
         toClass(this,ksActivity.class,bundle1);
