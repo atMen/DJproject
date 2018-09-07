@@ -7,22 +7,17 @@ package customer.tcrj.com.djproject.net;
  */
 public class ApiConstants {
 
-
+    //TODO:记得修改党务管理url地址
     /**
-     * 外网 http://111.21.32.158:8000
+     * 外网 http://123.139.46.180:1122
+     * 192.168.20.176:8888
+     * 党务管理 http://192.168.20.217:8080/yldj-cms/wechat/app/dwgl/dwglindex.chtml?memberId=adcf025079f1499788a62cda8cb67def
      */
-    public static final String TXImageURLROOT = "http://111.21.32.158:1122";
+    public static final String TXImageURLROOT = "http://123.139.46.180:1122";
+//  public static final String TXImageURLROOT = "http://192.168.20.176:8888/yldj-cms/";
     private static final String URLROOT = TXImageURLROOT+"/app/";
     public static final String ImageURLROOT = TXImageURLROOT+"/web.files";
     public static final String FileURLROOT = TXImageURLROOT+"/web.files";
-
-//    /**
-//     * 内网
-//     */
-//    public static final String TXImageURLROOT = "http://192.168.10.26:9134";
-//    private static final String URLROOT = TXImageURLROOT+"/app/";
-//    public static final String ImageURLROOT = TXImageURLROOT+"/web.files";
-//    public static final String FileURLROOT = TXImageURLROOT+"/web.files";
 
     /**
      * 登录
@@ -70,6 +65,18 @@ public class ApiConstants {
      * 信息发布
      */
     public static final String msgsendApi = URLROOT+"dwgl/addHomePagePic";
+
+
+    /**
+     * 获取出勤人员数据
+     */
+    public static final String cqrylistApi = "http://192.168.20.176:8888/yldj-cms/app/appPartyWork/getMemberList";
+
+
+    /**
+     * http://192.168.20.176:8888/yldj-cms/app/appPartyWork/addActivity
+     */
+    public static final String ZhuZhiShengHuoGuanLiAddApi = "http://192.168.20.176:8888/yldj-cms/app/appPartyWork/addActivity";
 
 
     /**
@@ -164,5 +171,12 @@ public class ApiConstants {
     public static final String h5hdjlApi = URLROOT+"hdjl.chtml";
     public static final String h5examApi = URLROOT+"exam.chtml";
     public static final String h5yyj = TXImageURLROOT+"/wechat/examstack/exam/myExam.chtml";
+
+
+
+    public static final String h5dwgl = TXImageURLROOT+"/wechat/APP/dwgl/dwglindex.chtml?memberId=";
+
+    public static final String h5xxks = TXImageURLROOT+"/wechat/APP/dwgl/mzshh/democracyForm.chtml?memberId=";
+
 
 }

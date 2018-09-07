@@ -310,8 +310,6 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
             jsonObject.put("username", user);
             jsonObject.put("password", psw);
 
-//            jsonObject.put("username", "zs");
-//            jsonObject.put("password", "123456");
         } catch (JSONException e) {
             e.printStackTrace();
         }

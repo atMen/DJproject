@@ -87,17 +87,17 @@ public class MainMenuAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        String sex1 = data.getSex();
-        if(sex1.equals("1")){
+        String sex1 = data.getXb();
+        if("1".equals(sex1)){
             viewHolder.sex.setText("性别：男");
         }else {
             viewHolder.sex.setText("性别：女");
         }
-        viewHolder.name.setText("姓名："+data.getCname());
-        String optime = data.getCreateDate();
+        viewHolder.name.setText("姓名："+data.getXm());
+        String optime = data.getCsrq();
         String substring = optime.substring(0, 10);
         viewHolder.sr.setText("出生日期："+substring);
-        viewHolder.zw.setText("职务："+data.getPrzyjszwmc());
+        viewHolder.zw.setText("电话："+data.getLxdh());
 
         return view;
     }

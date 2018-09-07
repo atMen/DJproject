@@ -363,6 +363,14 @@ public class plInfo {
             }
 
             public static class CreateUserBean {
+                public String getXm() {
+                    return xm;
+                }
+
+                public void setXm(String xm) {
+                    this.xm = xm;
+                }
+
                 /**
                  * id : 5e75222372e049a4848a79505f9158e7
                  * optime : 2018-05-09T02:47:02.000+0000
@@ -381,7 +389,7 @@ public class plInfo {
                  * address : 陕西渭南
                  * note :
                  */
-
+                private String xm;
                 private String id;
                 private String optime;
                 private String cname;

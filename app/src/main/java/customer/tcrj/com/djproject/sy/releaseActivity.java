@@ -67,8 +67,6 @@ public class releaseActivity extends BaseActivity {
     @BindView(R.id.content)
     EditText content;
 
-
-
     @BindView(R.id.recycler)
     RecyclerView recycler;
 
@@ -299,7 +297,6 @@ public class releaseActivity extends BaseActivity {
 
     private void initPic() {
         themeId = R.style.picture_default_style;
-
 
         FullyGridLayoutManager manager = new FullyGridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(manager);

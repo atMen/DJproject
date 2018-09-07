@@ -45,17 +45,17 @@ public class DYAdapter extends BaseQuickAdapter<bzbdyInfo.DataBean.ContentBean, 
         TextView sex = helper.getView(R.id.sex);
         TextView sr = helper.getView(R.id.sr);
         TextView zw = helper.getView(R.id.zw);
-        name.setText(item.getCname());
-        String sex1 = item.getSex();
-        if(sex1.equals("1")){
+        name.setText(item.getXm());
+        String sex1 = item.getXb();
+        if("1".equals(sex1)){
             sex.setText("性别：男");
-        }else if(sex1.equals("0")){
+        }else if("0".equals(sex1)){
             sex.setText("性别：女");
         }
-        String optime = item.getCreateDate();
+        String optime = item.getCsrq();
         String substring = optime.substring(0, 10);
         sr.setText("出生日期："+substring);
-        zw.setText("职务："+item.getPrzyjszwmc());
+        zw.setText("电话："+item.getLxdh());
 
     }
 

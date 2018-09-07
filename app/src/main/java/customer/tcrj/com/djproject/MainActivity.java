@@ -1,6 +1,9 @@
 package customer.tcrj.com.djproject;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Handler;
 import android.os.Message;
@@ -20,9 +23,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.githang.statusbar.StatusBarCompat;
+import com.pgyersdk.javabean.AppBean;
+import com.pgyersdk.update.PgyUpdateManager;
+import com.pgyersdk.update.UpdateManagerListener;
 
 import customer.tcrj.com.djproject.DJFregment.DJFragment;
 import customer.tcrj.com.djproject.Utils.AppManager;
+import customer.tcrj.com.djproject.Utils.DialogHelper;
 import customer.tcrj.com.djproject.Utils.Utils;
 import customer.tcrj.com.djproject.mine.MineFragment;
 import customer.tcrj.com.djproject.setting.SettingFragment;
@@ -43,13 +50,60 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mLoadingDialog = DialogHelper.getLoadingDialog(this);
+        init();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.red), true);
         AppManager.getAppManager().addActivity(this);
         initview();
+
+    }
+
+
+    private void init() {
+        showLoadingDialog("正在检测更新..");
+        PgyUpdateManager.register(this,
+                new UpdateManagerListener() {
+
+                    @Override
+                    public void onUpdateAvailable(final String result) {
+
+                        hideLoadingDialog();
+                        // 将新版本信息封装到AppBean中
+                        final AppBean appBean = getAppBeanFromString(result);
+                        new AlertDialog.Builder( MainActivity.this)
+                                .setTitle("更新")
+                                .setMessage(appBean.getReleaseNote())
+                                .setNegativeButton(
+                                        "确定",
+                                        new DialogInterface.OnClickListener() {
+
+                                            @Override
+                                            public void onClick(
+
+
+
+                                                    DialogInterface dialog,
+                                                    int which) {
+                                                startDownloadTask(
+                                                        MainActivity.this,
+                                                        appBean.getDownloadURL());
+                                            }
+                                        }).show();
+                    }
+
+                    @Override
+                    public void onNoUpdateAvailable() {
+                        hideLoadingDialog();
+
+                        Toast.makeText(MainActivity.this, "当前为最新版本", Toast.LENGTH_LONG).show();
+
+                    }
+                });
     }
 
     private void initview() {
+
         fragmentManager = getSupportFragmentManager();
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.bnve);
         BottomNavigationViewHelper.disableShiftMode(navigationView);
@@ -214,4 +268,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             isExit = false;
         }
     };
+
+    protected Dialog mLoadingDialog = null;
+    protected void showLoadingDialog(String str) {
+        if (mLoadingDialog != null) {
+            TextView tv = (TextView) mLoadingDialog.findViewById(R.id.tv_load_dialog);
+            tv.setText(str);
+            mLoadingDialog.show();
+        }
+    }
+
+    protected void hideLoadingDialog() {
+        if (mLoadingDialog != null && mLoadingDialog.isShowing()) {
+            mLoadingDialog.dismiss();
+        }
+    }
 }

@@ -147,7 +147,7 @@ public class ZzshFregment extends BaseFragment implements BaseQuickAdapter.OnIte
                     public void onSuccess(int statusCode, dhInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
 
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);

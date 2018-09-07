@@ -80,7 +80,7 @@ public class FreshNewsAdapter extends BaseQuickAdapter<qyListInfo.DataBean.Conte
         }
 
         String sex1 = item.getSex();
-        if(sex1.equals("1")){
+        if("1".equals(sex1)){
             sex.setText("性别：男");
         }else {
             sex.setText("性别：女");

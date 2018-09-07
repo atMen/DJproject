@@ -183,7 +183,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
         geticon();
 
-
     }
 
     private void geticon() {
@@ -393,15 +392,25 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                 toClass(mContext,releaseActivity.class);//信息发布
                 break;
             case R.id.iv_yxlz:
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://lxyz.12371.cn/");
+                toClass(mContext,NetJSCallJavaActivity.class,bundle);//专题活动
+                break;
             case R.id.iv_bwcx:
-
-                toClass(mContext,NetJSCallJavaActivity.class);//专题活动
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("url","http://www.12371.cn/special/cx/");
+                toClass(mContext,NetJSCallJavaActivity.class,bundle1);//专题活动
                 break;
             case R.id.ll_dwgl:
-                toClass(mContext,DwglActivity.class);//党务管理
+//                toClass(mContext,DwglActivity.class);//党务管理
+                toClass(mContext,WebViewActivity.class);
+
                 break;
             case R.id.ll_dkgl:
                 toClass(mContext,DkglActivity.class);//党课管理
+                break;
+
+            default:
                 break;
         }
 
@@ -442,6 +451,4 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
         Log.e("TAG","evenbus:"+messageEvent.getMessage());
         cn.setText(messageEvent.getMessage());
     }
-
-
 }

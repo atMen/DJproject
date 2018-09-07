@@ -43,21 +43,21 @@ public class DkAdapter extends BaseQuickAdapter<dkInfo.DataBean.ContentBean, Bas
         name.setText("姓名："+item.getRealName());
 
 
-        String optime = item.getCreateDate();
+        String optime = item.getCsrq();
         String substring = optime.substring(0, 10);
         time.setText("出生日期："+substring);
         String sex1 = item.getSex();
-        if(sex1.equals("1")){
+        if("1".equals(sex1)){
             sex.setText("性别：男");
-        }else if(sex1.equals("0")){
+        }else if("2".equals(sex1)){
             sex.setText("性别：女");
         }
 
-        String duty1 = item.getDuty();
+        String duty1 = item.getLxdh();
         if(duty1 != null){
-            duty.setText("职务："+item.getDuty());
+            duty.setText("电话："+item.getLxdh());
         }else {
-            duty.setText("职务：");
+            duty.setText("电话：");
         }
 
     }

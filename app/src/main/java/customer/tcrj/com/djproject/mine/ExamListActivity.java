@@ -71,7 +71,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         type = getIntent().getStringExtra("type");
         mPtrFrameLayout.disableWhenHorizontalMove(true);
-        txtTitle.setText("在线题库");
+        txtTitle.setText("考试列表");
         btnback.setOnClickListener(this);
         mPtrFrameLayout.setPtrHandler(new PtrHandler() {
             @Override
@@ -293,6 +293,10 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 //        Log.e("TAG","h5:"+"http://192.168.20.201:8080/yldj-cms/app/exam.chtml"+"?examId="+response.getId()+"&memberId="+loginInfo.getData().getId());
         Bundle bundle1 = new Bundle();
 
+
+//        Log.e("TAG","考试页面："+ApiConstants.h5xxks+response.getId());
+//        bundle1.putString("url",ApiConstants.h5xxks+response.getId());
+//        toClass(this,ksActivity.class,bundle1);
 
 
         String examState = response.getApproved();

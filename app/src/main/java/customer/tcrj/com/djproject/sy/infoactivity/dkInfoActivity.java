@@ -65,17 +65,19 @@ public class dkInfoActivity extends BaseActivity {
 
             name.setText("姓名："+response.getRealName());
 
-            String optime = response.getCreateDate();
+            String optime = response.getCsrq();
             String substring = optime.substring(0, 10);
             time.setText("出生日期："+substring);
 
             String sex1 = response.getSex();
-            if(sex1.equals("1")){
+
+            if("1".equals(sex1)){
                 sex.setText("性别：男");
-            }else if(sex1.equals("0")){
+            }else if("2".equals(sex1)){
                 sex.setText("性别：女");
             }
-            zw.setText("职务："+response.getDuty());
+
+            zw.setText("电话："+response.getLxdh());
             ssdx.setText("所属党校："+response.getPartySchool());
             zc.setText("职称："+response.getHonour());
             qm.setText(response.getSignature());

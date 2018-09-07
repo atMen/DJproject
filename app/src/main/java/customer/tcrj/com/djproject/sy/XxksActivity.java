@@ -135,16 +135,28 @@ public class XxksActivity extends BaseActivity {
                             String type = data.get(i).getType();
 
                             if(type.equals("13303") && num>0){
-                                mViewPager.setCurrentItem(2);
+                                if(mViewPager != null){
+                                    mViewPager.setCurrentItem(2);
+                                }
+
                                 return;
                             }else if(type.equals("13305") && num>0){
-                                mViewPager.setCurrentItem(3);
+                                if(mViewPager != null){
+                                    mViewPager.setCurrentItem(3);
+                                }
+
                                 return;
                             }else if(type.equals("13301") && num>0){
-                                mViewPager.setCurrentItem(0);
+                                if(mViewPager != null){
+                                    mViewPager.setCurrentItem(0);
+                                }
+
                                 return;
                             }else if(type.equals("13302") && num>0){
-                                mViewPager.setCurrentItem(1);
+                                if(mViewPager != null){
+                                    mViewPager.setCurrentItem(1);
+                                }
+
                                 return;
                             }
 

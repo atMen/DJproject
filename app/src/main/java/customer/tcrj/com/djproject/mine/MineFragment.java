@@ -234,15 +234,11 @@ private void setUserInfo(Entity response) {
                 toClass(mContext,ExamListActivity.class,bundle3);
                 break;
             case R.id.rl_hd:
-//                toClass(mContext,NetJSCallJavaActivity.class);
+//                Bundle bundle1 = new Bundle();
+//                bundle1.putInt("type",3);
+//                toClass(mContext, DwglActivity.class,bundle1);
 
-//                Bundle bundle2 = new Bundle();
-//                bundle2.putString("url","http://192.168.20.201:8080/yldj-cms/app/hdjl.chtml");
-//                toClass(mContext,ksActivity.class,bundle2);
-//                toClass(mContext,wjdcListActivity.class);
-                Bundle bundle1 = new Bundle();
-                bundle1.putInt("type",3);
-                toClass(mContext, DwglActivity.class,bundle1);
+                Toast.makeText(mContext, "敬请期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rl_zx:
                 Bundle bundle2 = new Bundle();

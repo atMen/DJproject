@@ -140,6 +140,22 @@ public class dkInfo implements Serializable{
         }
 
         public static class ContentBean implements Serializable{
+            public String getLxdh() {
+                return lxdh;
+            }
+
+            public void setLxdh(String lxdh) {
+                this.lxdh = lxdh;
+            }
+
+            public String getCsrq() {
+                return csrq;
+            }
+
+            public void setCsrq(String csrq) {
+                this.csrq = csrq;
+            }
+
             /**
              * id : 3c4a8f5ea879449a832aa806326105a9
              * optime : 2018-05-02T09:28:53.000+0000
@@ -190,6 +206,8 @@ public class dkInfo implements Serializable{
              * applyReason : 我想讲课
              */
 
+            private String lxdh;
+            private String csrq;
             private String id;
             private String optime;
             private boolean isNewRecord;

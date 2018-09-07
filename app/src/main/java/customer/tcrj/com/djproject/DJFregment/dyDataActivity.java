@@ -159,7 +159,7 @@ public class dyDataActivity extends BaseActivity implements BaseQuickAdapter.OnI
 //                      Toast.makeText(dyDataActivity.this, response.getMessage(), Toast.LENGTH_SHORT).show();
 
 
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
 
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);

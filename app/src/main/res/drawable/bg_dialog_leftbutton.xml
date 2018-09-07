@@ -5,7 +5,9 @@
             <!-- 内部颜色 -->
             <solid android:color="@color/white" />
             <!-- 边缘线条颜色 -->
-            <corners android:bottomLeftRadius="@dimen/margin_10" />
+            <corners android:bottomLeftRadius="@dimen/margin_10"
+                android:bottomRightRadius="@dimen/margin_10"
+                />
         </shape>
     </item>
     <item android:state_pressed="true">
@@ -13,7 +15,9 @@
             <!-- 内部颜色 -->
             <solid android:color="@color/main_bg" />
             <!-- 边缘线条颜色 -->
-            <corners android:bottomLeftRadius="@dimen/margin_10" />
+            <corners android:bottomLeftRadius="@dimen/margin_10"
+                android:bottomRightRadius="@dimen/margin_10"
+                />
         </shape>
     </item>
 </selector>

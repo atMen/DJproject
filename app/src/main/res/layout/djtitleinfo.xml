@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/tv_jgzb"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
@@ -32,8 +32,8 @@
 
         <LinearLayout
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="18dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

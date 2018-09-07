@@ -7,8 +7,8 @@ android {
         applicationId "customer.tcrj.com.djproject"
         minSdkVersion 19
         targetSdkVersion 22
-        versionCode 2
-        versionName "2.0"
+        versionCode 8
+        versionName "8.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //配置so文件
         ndk {
@@ -49,9 +49,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/tbs_sdk_thirdapp_v3.2.0.1104_43200_sharewithdownload_withfilereader_withoutGame_obfs_20170609_115346.jar')
     compile project(':nicevideoplayer')
-    compile ('com.github.LuckSiege.PictureSelector:picture_library:v2.2.3' ){
+    compile('com.github.LuckSiege.PictureSelector:picture_library:v2.2.3') {
         exclude group: 'com.android.support'
     }
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:cardview-v7:25.3.1'
@@ -73,6 +74,5 @@ dependencies {
     compile 'org.jsoup:jsoup:1.10.2'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.pgyersdk:sdk:2.8.1'
-
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

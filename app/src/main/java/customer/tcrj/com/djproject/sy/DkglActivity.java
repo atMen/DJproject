@@ -151,7 +151,7 @@ public class DkglActivity extends BaseActivity implements FreshNewsAdapter.OnIte
 
         @Override
         public void onSuccess(int statusCode, dkInfo response) {
-//                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
+//          Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
             if(response.getErrorCode().equals("0")){
 

@@ -46,7 +46,7 @@ public class XxkcActivity extends BaseActivity {
             num.setVisibility(View.VISIBLE);
         }
 
-        num.setText("开始答题");
+        num.setText("开始考试");
         num.setOnClickListener(this);
 
       mViewPager.setOffscreenPageLimit(4);

@@ -92,7 +92,7 @@
                     android:textSize="13sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="出生日期：1992年3月 日"
+                    android:text="出生日期："
                     />
 
 

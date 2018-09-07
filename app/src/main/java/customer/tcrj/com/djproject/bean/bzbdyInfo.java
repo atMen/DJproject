@@ -138,6 +138,30 @@ public class bzbdyInfo {
         }
 
         public static class ContentBean {
+            public String getXm() {
+                return xm;
+            }
+
+            public void setXm(String xm) {
+                this.xm = xm;
+            }
+
+            public String getXb() {
+                return xb;
+            }
+
+            public void setXb(String xb) {
+                this.xb = xb;
+            }
+
+            public String getLxdh() {
+                return lxdh;
+            }
+
+            public void setLxdh(String lxdh) {
+                this.lxdh = lxdh;
+            }
+
             /**
              * id : 5209605669e14cf6ba4c51b462cce4a6
              * optime : 2018-05-16T09:54:58.000+0000
@@ -200,6 +224,9 @@ public class bzbdyInfo {
              * paidCast : 1
              */
 
+            private String xm;
+            private String xb;
+            private String lxdh;
             private String id;
             private String optime;
             private boolean isNewRecord;
