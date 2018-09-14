@@ -144,7 +144,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
         lldkgl.setOnClickListener(this);
         iv_bwcx.setOnClickListener(this);
         iv_yxlz.setOnClickListener(this);
-
 //        mMZBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener() {
 //            @Override
 //            public void onPageClick(View view, int i) {
@@ -296,9 +295,9 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
             }
 
 
-            tv_type.setText(personInfo.getType()+" |");
+            tv_type.setText(personInfo.getType()+" | ");
             tv_username.setText(personInfo.getUsername());
-//            tv_jgzb.setText(personInfo.getUnit()+personInfo.getDept());
+//          tv_jgzb.setText(personInfo.getUnit()+personInfo.getDept());
             tv_jgzb.setText(personInfo.getDept());
             cn.setText(personInfo.getMyPromise());//承若
 
@@ -308,12 +307,13 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
             if(starNum != null){
                 int i = Integer.parseInt(starNum);
                 if(i > 0){
-                    start.setVisibility(View.VISIBLE);
-                    start.setNumberOfStars(i);
+//                    start.setVisibility(View.VISIBLE);
+                    start.setNumberOfStars(5);
                     start.setRating(i);
 
                 }else{
-                    start.setVisibility(View.GONE);
+
+//                    start.setVisibility(View.GONE);
                 }
             }
 

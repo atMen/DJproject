@@ -31,8 +31,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.githang.statusbar.StatusBarCompat;
+import com.google.gson.Gson;
 import com.tsy.sdk.myokhttp.MyOkHttp;
 import com.tsy.sdk.myokhttp.response.GsonResponseHandler;
+import com.tsy.sdk.myokhttp.response.JsonResponseHandler;
+import com.tsy.sdk.myokhttp.util.LogUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +45,7 @@ import customer.tcrj.com.djproject.Utils.ACache;
 import customer.tcrj.com.djproject.Utils.AndroidBug5497Workaround;
 import customer.tcrj.com.djproject.Utils.DialogHelper;
 import customer.tcrj.com.djproject.bean.Entity;
+import customer.tcrj.com.djproject.bean.loginBean;
 import customer.tcrj.com.djproject.net.ApiConstants;
 import customer.tcrj.com.djproject.widget.VerificationCodeView;
 
@@ -71,12 +75,24 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
     private MyOkHttp mMyOkhttp;
     VerificationCodeView mVerificationCodeView;
 
+    private String psw;
+    private String username;
+    private String isfirst;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.white), true);
+
+
+        psw =  ACache.get(this).getAsString("psw");
+        isfirst =  ACache.get(this).getAsString("isfirst");
+        username =  ACache.get(this).getAsString("username");
+
+
 
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         if(isFullScreen(this)){
@@ -101,7 +117,7 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
         et_yzm = (EditText) findViewById(R.id.et_yzm);
         forget_password = (TextView) findViewById(R.id.forget_password);
 
-                iv_clean_phone = (ImageView) findViewById(R.id.iv_clean_phone);
+        iv_clean_phone = (ImageView) findViewById(R.id.iv_clean_phone);
         clean_password = (ImageView) findViewById(R.id.clean_password);
         iv_show_pwd = (ImageView) findViewById(R.id.iv_show_pwd);
         btn_login = (Button) findViewById(R.id.btn_login);
@@ -113,6 +129,17 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
         keyHeight = screenHeight / 3;//弹起高度为屏幕高度的1/3
 
         forget_password.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
+
+
+        if(username != null && psw != null){
+            et_mobile.setText(username);
+            et_password.setText(psw);
+
+                if(!"isfirst".equals(isfirst)){
+                    toLogin(username,psw,psw);
+                }
+
+        }
     }
 
     private void initListener() {
@@ -293,8 +320,9 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
                     }
 
                 }
+                break;
 
-
+            default:
                 break;
         }
     }
@@ -318,32 +346,74 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
                 .url(ApiConstants.loginApi)
                 .jsonParams(jsonObject.toString())
                 .tag(this)
-                .enqueue(new GsonResponseHandler<Entity>() {
+                .enqueue(new JsonResponseHandler() {
                     @Override
-                    public void onFailure(int statusCode, String error_msg) {
-
+                    public void onSuccess(int statusCode, JSONObject response) {
+                        Log.d("TAG", "doPost onSuccess:" + response);
                         hideLoadingDialog();
-                        Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
-                        Log.e("TAG","msg"+statusCode);
+                        ACache.get(LoginActivity.this).put("isfirst","no");
+                        gsonData(response,psw,user);
                     }
 
                     @Override
-                    public void onSuccess(int statusCode, Entity response) {
+                    public void onFailure(int statusCode, String error_msg) {
                         hideLoadingDialog();
-                        Toast.makeText(LoginActivity.this,response.getMessage(), Toast.LENGTH_SHORT).show();
-                        if(response.getErrorCode().equals("0")){
+                        Log.d("TAG", "doPost onFailure:" + error_msg);
+                        Toast.makeText(LoginActivity.this, error_msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+//                .enqueue(new GsonResponseHandler<Entity>() {
+//                    @Override
+//                    public void onFailure(int statusCode, String error_msg) {
+//
+//                        hideLoadingDialog();
+//                        Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+//                        Log.e("TAG","msg"+error_msg);
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(int statusCode, Entity response) {
+//                        hideLoadingDialog();
+//                        Toast.makeText(LoginActivity.this,response.getMessage(), Toast.LENGTH_SHORT).show();
+//                        if(response.getErrorCode().equals("0")){
+//                            Log.e("TAG","成功");
+//                            ToCache(response,psw);
+//                            toClass(LoginActivity.this,MainActivity.class);
+//                            finish();
+//                        }
+//                    }
+//                });
+    }
+
+    private void gsonData(JSONObject response, String psw, String username) {
+
+        Gson gson = new Gson();
+        try {
+
+            final Entity gsonResponse = (Entity) gson.fromJson(response.toString(), Entity.class);
+            if(gsonResponse.getErrorCode().equals("0")){
                             Log.e("TAG","成功");
-                            ToCache(response,psw);
+                            ToCache(gsonResponse,psw,username);
                             toClass(LoginActivity.this,MainActivity.class);
                             finish();
                         }
-                    }
-                });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            final loginBean gsonResponse = (loginBean) gson.fromJson(response.toString(), loginBean.class);
+            Toast.makeText(LoginActivity.this,gsonResponse.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
+
     //缓存数据
-    private void ToCache(Entity response, String psw) {
+    private void ToCache(Entity response, String psw, String username) {
         ACache.get(this).put("psw",psw);
+        ACache.get(this).put("username",username);
         ACache.get(this).put("loginInfo",response);
     }
 

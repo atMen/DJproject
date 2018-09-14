@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     public void onNoUpdateAvailable() {
                         hideLoadingDialog();
 
-                        Toast.makeText(MainActivity.this, "当前为最新版本", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(MainActivity.this, "当前为最新版本", Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             mHandler.sendEmptyMessageDelayed(0, 2000);
         } else {
             finish();
-//            System.exit(0);
+//          System.exit(0);
         }
     }
 

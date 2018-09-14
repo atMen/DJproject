@@ -81,7 +81,7 @@
             android:textSize="18sp"
             android:textColor="#111111"
             android:drawableLeft="@drawable/zt"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginBottom="10dp"
             />
 
@@ -108,7 +108,7 @@
             <ImageView
                 android:id="@+id/iv_bwcx"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="72dp"
                 android:layout_weight="1"
                 android:layout_marginRight="2dp"
                 android:background="@drawable/bwcx"
@@ -117,7 +117,7 @@
                 android:id="@+id/iv_yxlz"
                 android:layout_marginLeft="2dp"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="72dp"
                 android:layout_weight="1"
                 android:background="@drawable/lxyz"
                 />

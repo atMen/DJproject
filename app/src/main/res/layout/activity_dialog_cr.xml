@@ -23,7 +23,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="通知"
+                android:text="承若"
                 android:textSize="18sp"
                 android:gravity="center"
                 android:layout_marginBottom="10dp"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:textSize="15dp"
-                android:text="这是我的承若"
+                android:hint="请编写新的承若信息"
                 android:gravity="left"
                 android:padding="5dp"
                 />
@@ -50,7 +50,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/bg_button_background"
-                android:text="确定"
+                android:text="保存"
                 android:textSize="13sp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"/>

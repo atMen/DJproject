@@ -13,8 +13,7 @@ public class ApiConstants {
      * 192.168.20.176:8888
      * 党务管理 http://192.168.20.217:8080/yldj-cms/wechat/app/dwgl/dwglindex.chtml?memberId=adcf025079f1499788a62cda8cb67def
      */
-    public static final String TXImageURLROOT = "http://123.139.46.180:1122";
-//  public static final String TXImageURLROOT = "http://192.168.20.176:8888/yldj-cms/";
+    public static final String TXImageURLROOT = "http://www.yldjw.gov.cn";
     private static final String URLROOT = TXImageURLROOT+"/app/";
     public static final String ImageURLROOT = TXImageURLROOT+"/web.files";
     public static final String FileURLROOT = TXImageURLROOT+"/web.files";
@@ -43,6 +42,11 @@ public class ApiConstants {
      * 获取本部党员信息
      */
     public static final String dyinfoApi = URLROOT+"person/getMyDeptPersonsInfo";
+
+    /**
+     * 修改我的承若
+     */
+    public static final String setPromiseApi = URLROOT+"person/addWdcl";
 
     /**
      * 获取互动交流-心愿墙

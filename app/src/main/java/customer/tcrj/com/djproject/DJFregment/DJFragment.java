@@ -178,7 +178,7 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
             }
 
 
-            tv_type.setText(personInfo.getType()+" |");
+            tv_type.setText(personInfo.getType()+" | ");
             tv_username.setText(personInfo.getUsername());
 //            tv_jgzb.setText(personInfo.getUnit()+personInfo.getDept());
             tv_jgzb.setText(personInfo.getDept());
@@ -190,12 +190,8 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
             if(starNum != null){
                 int i = Integer.parseInt(starNum);
                 if(i > 0){
-                    start.setVisibility(View.VISIBLE);
-                    start.setNumberOfStars(i);
+                    start.setNumberOfStars(5);
                     start.setRating(i);
-
-                }else{
-                    start.setVisibility(View.GONE);
                 }
             }
 
@@ -228,6 +224,8 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
                 toClass(mContext, DwglActivity.class,bundle);
                 break;
 
+            default:
+                break;
 
         }
     }
@@ -238,6 +236,7 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
             return;
         }
 
+        showLoadingDialog("正在加载数据..");
         JSONObject jsonObject = new JSONObject();
 
         try {

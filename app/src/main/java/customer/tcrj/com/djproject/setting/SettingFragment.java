@@ -125,7 +125,7 @@ private void setUserInfo(Entity response) {
         }
 
 
-        tv_type.setText(personInfo.getType()+" |");
+        tv_type.setText(personInfo.getType()+" | ");
         tv_username.setText(personInfo.getUsername());
 //            tv_jgzb.setText(personInfo.getUnit()+personInfo.getDept());
         tv_jgzb.setText(personInfo.getDept());
@@ -137,12 +137,8 @@ private void setUserInfo(Entity response) {
         if(starNum != null){
             int i = Integer.parseInt(starNum);
             if(i > 0){
-                start.setVisibility(View.VISIBLE);
-                start.setNumberOfStars(i);
+                start.setNumberOfStars(5);
                 start.setRating(i);
-
-            }else{
-                start.setVisibility(View.GONE);
             }
         }
 
@@ -285,7 +281,8 @@ private void setUserInfo(Entity response) {
 
     private void sureZX() {
         AppManager.getAppManager().finishAllActivity();
-        ACache.get(mContext).clear();
+        ACache.get(mContext).put("isfirst","isfirst");
+//        ACache.get(mContext).clear();
         goLogin();
     }
 
