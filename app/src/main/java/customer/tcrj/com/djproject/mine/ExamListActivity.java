@@ -166,7 +166,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
         public void onSuccess(int statusCode, zxdtInfo response) {
 //      Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-            if(response.getErrorCode().equals("0")){
+            if("0".equals(response.getErrorCode())){
 
                 if(num > 1){//上拉加载
                     loadMoreData(response,false);
@@ -242,7 +242,9 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
             canPull = true;
             pageNum++;
             detailAdapter.setNewData(response);
-            mPtrFrameLayout.refreshComplete();
+            if(mPtrFrameLayout != null){
+                mPtrFrameLayout.refreshComplete();
+            }
             showSuccess();
             disableLoadMoreIfNotFullPage(mRecyclerView,response.size());
         }
@@ -277,8 +279,9 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mMyOkhttp.cancel(this);
+        super.onDestroy();
+
     }
 
     @Override

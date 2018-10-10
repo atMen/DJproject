@@ -123,7 +123,12 @@ public class WdFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
     protected void setData() {
         getData(pageNum);
     }
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
 
+    }
 
     //获取网络数据
     private void getData(final int num) {
@@ -157,7 +162,7 @@ public class WdFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
                     @Override
                     public void onSuccess(int statusCode, kjInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
                             }else{//下拉刷新
@@ -283,12 +288,12 @@ public class WdFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
         String file = item.getFile();
         String s = file.replaceAll("swf", "pdf");
         Log.e("TAG","ROOTURL+file"+ROOTURL+file);
-        String id = item.getId();
+        String kjid = item.getId();
         String fileName = item.getFileName();
         Bundle bundle = new Bundle();
         bundle.putString("file",s);
         bundle.putString("fileName",fileName);
-        bundle.putString("kjid",id);
+        bundle.putString("kjid",kjid);
         bundle.putString("studyState",item.getStudyState());
         bundle.putString("playtime",item.getPlayTime());
         bundle.putString("minduction",item.getMinDuration());

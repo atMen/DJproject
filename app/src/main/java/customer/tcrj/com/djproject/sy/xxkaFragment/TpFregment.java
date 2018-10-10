@@ -116,6 +116,12 @@ public class TpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
         getData(pageNum);
     }
 
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(mContext);
+        super.onDestroy();
+
+    }
 
     //获取网络数据
     private void getData(final int num) {
@@ -150,7 +156,7 @@ public class TpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
                     @Override
                     public void onSuccess(int statusCode, kjInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
                             }else{//下拉刷新
@@ -265,7 +271,8 @@ public class TpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
         kjInfo.DataBean.ContentBean response = (kjInfo.DataBean.ContentBean) adapter.getItem(position);
         Bundle bundle = new Bundle();
         bundle.putString("iconinfo",response.getFile());
-        bundle.putString("kjid",id);
+        bundle.putString("kcid",id);
+        bundle.putString("kjid",response.getId());
         bundle.putString("studyState",response.getStudyState());
         bundle.putString("playtime",response.getPlayTime());
         bundle.putString("minduction",response.getMinDuration());

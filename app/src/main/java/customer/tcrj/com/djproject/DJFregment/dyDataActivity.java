@@ -225,7 +225,9 @@ public class dyDataActivity extends BaseActivity implements BaseQuickAdapter.OnI
             canPull = true;
             pageNum++;
             detailAdapter.setNewData(response);
-            mPtrFrameLayout.refreshComplete();
+            if(mPtrFrameLayout != null){
+                mPtrFrameLayout.refreshComplete();
+            }
             showSuccess();
             disableLoadMoreIfNotFullPage(mRecyclerView,response.size());
         }
@@ -259,6 +261,12 @@ public class dyDataActivity extends BaseActivity implements BaseQuickAdapter.OnI
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+    }
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
 
     }
 }

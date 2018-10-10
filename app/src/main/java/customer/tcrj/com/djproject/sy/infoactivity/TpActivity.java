@@ -41,7 +41,7 @@ public class TpActivity extends AppCompatActivity implements View.OnClickListene
     private ImageView btnback;
 
     private MyOkHttp mMyOkhttp;
-//    private String memberId;
+    private String coursewareId;
     private String minduction;
     private String studyState;
     private String courseId;
@@ -55,8 +55,8 @@ public class TpActivity extends AppCompatActivity implements View.OnClickListene
 
 
         loginInfo = (Entity) ACache.get(this).getAsObject("loginInfo");
-        courseId = getIntent().getStringExtra("kjid");
-//        memberId = getIntent().getStringExtra("kcid");
+        courseId = getIntent().getStringExtra("kjid");//课件id
+        coursewareId = getIntent().getStringExtra("kcid");//课程id
         studyState = getIntent().getStringExtra("studyState");
         minduction = getIntent().getStringExtra("minduction");
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
@@ -300,6 +300,7 @@ public class TpActivity extends AppCompatActivity implements View.OnClickListene
             }
             jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", courseId);
+            jsonObject.put("playTime", "-1");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -311,7 +312,6 @@ public class TpActivity extends AppCompatActivity implements View.OnClickListene
                 .enqueue(new GsonResponseHandler<Entity>() {
                     @Override
                     public void onFailure(int statusCode, String error_msg) {
-
                         hideLoadingDialog();
                         Log.e("TAG","失败："+error_msg);
                         finish();

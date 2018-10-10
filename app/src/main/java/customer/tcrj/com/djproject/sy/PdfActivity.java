@@ -447,7 +447,7 @@ public class PdfActivity extends AppCompatActivity implements View.OnClickListen
             }
             jsonObject.put("memberId", loginInfo.getData().getData().getId());
             jsonObject.put("coursewareId", courseId);
-
+            jsonObject.put("playTime", "-1");
         } catch (JSONException e) {
             e.printStackTrace();
         }

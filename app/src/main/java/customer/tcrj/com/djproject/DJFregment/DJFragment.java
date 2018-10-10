@@ -184,7 +184,7 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
             tv_jgzb.setText(personInfo.getDept());
             cn.setText(personInfo.getMyPromise());//承若
 
-            tv_zw.setText(personInfo.getDuty());
+            tv_zw.setText(personInfo.getDjztName());
 
             String starNum = personInfo.getStarNum();
             if(starNum != null){
@@ -204,12 +204,8 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
 //            }else{
 //                start.setVisibility(View.GONE);
 //            }
-
         }
-
-
     }
-
 
     @Override
     public void onClick(View v) {

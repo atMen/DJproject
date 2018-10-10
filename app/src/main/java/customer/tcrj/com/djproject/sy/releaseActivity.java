@@ -28,8 +28,10 @@ import com.tsy.sdk.myokhttp.response.GsonResponseHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import customer.tcrj.com.djproject.LoginActivity;
@@ -40,6 +42,7 @@ import customer.tcrj.com.djproject.Utils.Utils;
 import customer.tcrj.com.djproject.adpater.GridImageAdapter;
 import customer.tcrj.com.djproject.base.BaseActivity;
 import customer.tcrj.com.djproject.bean.Entity;
+import customer.tcrj.com.djproject.bean.picBean;
 import customer.tcrj.com.djproject.checkUpdata.SweetAlertDialog;
 import customer.tcrj.com.djproject.net.ApiConstants;
 import customer.tcrj.com.djproject.widget.DialogDateTimePicker;
@@ -72,7 +75,7 @@ public class releaseActivity extends BaseActivity {
 
     private List<LocalMedia> selectList = new ArrayList<>();
     private GridImageAdapter adapter;
-    private int maxSelectNum = 6;
+    private int maxSelectNum = 1;
     private int themeId;
 
     private MyOkHttp mMyOkhttp;
@@ -122,14 +125,53 @@ public class releaseActivity extends BaseActivity {
                 String stitle = title.getText().toString();
                 String scontent = content.getText().toString();
 
-                Log.e("TAG","type:"+stype+"---stvtime:"+stvtime+"---stitle:"+stitle+"---scontent:"+scontent);
 
                 if(stype.equals("") || stvtime.equals("") || stitle.equals("") || scontent.equals("") ){
                     Toast.makeText(this, "请将信息填写完整", Toast.LENGTH_SHORT).show();
                 }else{
-                    toSend(stitle,typeId,scontent,stvtime);
-                }
+                    if(selectList != null && selectList.size() > 0){
 
+                        for (LocalMedia media : selectList) {
+                            Log.i("原图片-----》", media.getPath());
+                            Log.i("压缩图片-----》", media.getCompressPath());
+                            //1.4M可压缩到500多K
+                            compressPath = media.getCompressPath();
+                        }
+                    }else {
+                        compressPath = null;
+                    }
+
+                    Log.e("TAG","图片信息...："+compressPath);
+                    if(compressPath == null){
+                        Toast.makeText(this, "请选择图片", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else {
+                        String loadeData = upLoadeData(compressPath);
+                        Log.e("TAG","图片base64...："+loadeData);
+                        if(loadeData == null){
+                            Toast.makeText(this, "图片上传失败，请重新上传", Toast.LENGTH_SHORT).show();
+                        }else {
+                            SendPic(stitle,typeId,scontent,stvtime,loadeData);
+                        }
+
+                    }
+                }
+//                selectList = adapter.getList();
+
+
+//                upLoadeData(compressPath);
+//
+//                Log.e("TAG","type:"+stype+"---stvtime:"+stvtime+"---stitle:"+stitle+"---scontent:"+scontent);
+//
+//                if(stype.equals("") || stvtime.equals("") || stitle.equals("") || scontent.equals("") ){
+//                    Toast.makeText(this, "请将信息填写完整", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    toSend(stitle,typeId,scontent,stvtime);
+//                }
+
+                break;
+
+            default:
                 break;
         }
 
@@ -228,8 +270,7 @@ public class releaseActivity extends BaseActivity {
     }
 
 
-    private void toSend(final String title,String categoryId,String content, String time) {
-        showLoadingDialog("正在提交...");
+    private void toSend(final String title,String categoryId,String content, String time, String att_path) {
 
         JSONObject jsonObject = new JSONObject();
 
@@ -238,9 +279,9 @@ public class releaseActivity extends BaseActivity {
             jsonObject.put("content", content);
             jsonObject.put("time", time);
             jsonObject.put("categoryId", categoryId);
+            jsonObject.put("thumbUrl", att_path);
 
-//            jsonObject.put("username", "zs");
-//            jsonObject.put("password", "123456");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -262,6 +303,40 @@ public class releaseActivity extends BaseActivity {
                         hideLoadingDialog();
                         if(response.getErrorCode().equals("0")){
                             showUpdateDialog("信息发布成功", 2);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 上传图片
+     */
+    private void SendPic(final String stitle, final String scategoryId, final String scontent, final String stime,String file) {
+        showLoadingDialog("正在提交...");
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("base64Data", file);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        mMyOkhttp.post()
+                .url(ApiConstants.sendpicApi)
+                .jsonParams(jsonObject.toString())
+                .tag(this)
+                .enqueue(new GsonResponseHandler<picBean>() {
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
+                        showUpdateDialog("信息发布失败", 1);
+                        Log.e("TAG","msg"+statusCode);
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, picBean response) {
+                        if(response.getErrorCode().equals("0")){
+                            String att_path = response.getData().getAtt_path();
+                            toSend(stitle,scategoryId,scontent,stime,att_path);
                         }
                     }
                 });
@@ -365,7 +440,7 @@ public class releaseActivity extends BaseActivity {
 //                        .videoMinSecond(10)
                     //.previewEggs(false)// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中)
                     //.cropCompressQuality(90)// 裁剪压缩质量 默认100
-                    .minimumCompressSize(100)// 小于100kb的图片不压缩
+                    .minimumCompressSize(100)//  小于100kb的图片不压缩
                     //.cropWH()// 裁剪宽高比，设置如果大于图片本身宽高则无效
                     //.rotateEnabled(true) // 裁剪是否可旋转图片
                     //.scaleEnabled(true)// 裁剪是否可放大缩小图片
@@ -385,20 +460,36 @@ public class releaseActivity extends BaseActivity {
                 case PictureConfig.CHOOSE_REQUEST:
                     // 图片选择结果回调
                     selectList = PictureSelector.obtainMultipleResult(data);
-                    // 例如 LocalMedia 里面返回三种path
+                    // 里面返回三种path
                     // 1.media.getPath(); 为原图path
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
                     // 如果裁剪并压缩了，已取压缩路径为准，因为是先裁剪后压缩的
-                    for (LocalMedia media : selectList) {
-                        Log.i("原图片-----》", media.getPath());
-                        Log.i("压缩图片-----》", media.getCompressPath());
-                        //1.4M可压缩到500多K
-                    }
+
                     adapter.setList(selectList);
                     adapter.notifyDataSetChanged();
                     break;
+
+                default:
+                    break;
             }
         }
+    }
+
+    String compressPath = null;
+    private String upLoadeData(String path) {
+
+        String base64File = null;
+        try {
+            base64File = Utils.encodeBase64File(path);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return base64File;
+
+
     }
 }

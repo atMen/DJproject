@@ -118,7 +118,12 @@ public class YpFregment extends BaseFragment implements  BaseQuickAdapter.OnItem
     public void onRetry() {
         getData(pageNum);
     }
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
 
+    }
     @Override
     protected void setData() {
         getData(pageNum);
@@ -157,7 +162,7 @@ public class YpFregment extends BaseFragment implements  BaseQuickAdapter.OnItem
                     @Override
                     public void onSuccess(int statusCode, kjInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
                             }else{//下拉刷新

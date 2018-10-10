@@ -153,7 +153,7 @@ public class DkglActivity extends BaseActivity implements FreshNewsAdapter.OnIte
         public void onSuccess(int statusCode, dkInfo response) {
 //          Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-            if(response.getErrorCode().equals("0")){
+            if("0".equals(response.getErrorCode())){
 
                 if(num > 1){//上拉加载
                     loadMoreData(response,false);
@@ -230,7 +230,9 @@ public class DkglActivity extends BaseActivity implements FreshNewsAdapter.OnIte
             canPull = true;
             pageNum++;
             detailAdapter.setNewData(response);
-            mPtrFrameLayout.refreshComplete();
+            if(mPtrFrameLayout != null){
+                mPtrFrameLayout.refreshComplete();
+            }
             showSuccess();
             disableLoadMoreIfNotFullPage(mRecyclerView,response.size());
         }
@@ -277,5 +279,12 @@ public class DkglActivity extends BaseActivity implements FreshNewsAdapter.OnIte
         Bundle bundle = new Bundle();
         bundle.putSerializable("teacherinfo",response);
         toClass(this,dkInfoActivity.class,bundle);
+    }
+
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
+
     }
 }

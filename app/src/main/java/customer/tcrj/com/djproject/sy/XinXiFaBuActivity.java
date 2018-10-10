@@ -73,7 +73,7 @@ public class XinXiFaBuActivity extends BaseActivity {
 
     private List<LocalMedia> selectList = new ArrayList<>();
     private GridImageAdapter adapter;
-    private int maxSelectNum = 6;
+    private int maxSelectNum = 1;
     private int themeId;
 
     private MyOkHttp mMyOkhttp;

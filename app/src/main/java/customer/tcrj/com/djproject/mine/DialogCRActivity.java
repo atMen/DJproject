@@ -58,7 +58,7 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
         loginInfo = (Entity) ACache.get(this).getAsObject("loginInfo");
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         response = (Entity.DataBeanX.DataBean) getIntent().getSerializableExtra("cn");
-        cn = response.getMyPromise();
+        cn = loginInfo.getData().getData().getMyPromise();
         mLoadingDialog = DialogHelper.getLoadingDialog(this);
         findview();
         initview();
@@ -81,7 +81,7 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
 
         if(cn != null){
             name.setText("我的承诺");
-//            title.setText(cn);
+            title.setText(cn);
         }
 
     }
@@ -111,17 +111,11 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
 
             Toast.makeText(this, "请填写信息", Toast.LENGTH_SHORT).show();
         }else {
-
             Log.e("TAG","承若信息："+s);
             setPromise(s);
-
-
-
         }
 
     }
-
-
 
     public void setPromise(final String s) {
 
@@ -141,10 +135,8 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
                 .enqueue(new GsonResponseHandler<bzbdyInfo>() {
                     @Override
                     public void onFailure(int statusCode, String error_msg) {
-
-                      hideLoadingDialog();
-                      Toast.makeText(DialogCRActivity.this, "信息提交失败，请重新提交", Toast.LENGTH_SHORT).show();
-
+                        hideLoadingDialog();
+                        Toast.makeText(DialogCRActivity.this, "信息提交失败，请重新提交", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -152,11 +144,10 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
                         Log.e("TAG","info:"+response.toString());
                         hideLoadingDialog();
                         Toast.makeText(DialogCRActivity.this, data.getMessage(), Toast.LENGTH_SHORT).show();
-                        response.setMyPromise(cn);
+                        loginInfo.getData().getData().setMyPromise(s);
+                        ACache.get(DialogCRActivity.this).put("loginInfo",loginInfo);
                         EventBus.getDefault().post(new MessageEvent(s));
                         finish();
-
-
                     }
                 });
     }
@@ -174,6 +165,5 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
             mLoadingDialog.dismiss();
         }
     }
-
 
 }

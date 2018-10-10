@@ -50,14 +50,13 @@ public class xxkcAdapter extends BaseQuickAdapter<kcList.DataBean.ContentBean, B
 //            progress.setText("未学");
 //            progress.setBackgroundColor(Color.parseColor("#ff0000"));
 //        }else
-        if (progress1.equals("100")){
+        if (progress1.equals("1")){
             progress.setText("已学完");
             progress.setBackgroundColor(Color.parseColor("#86B659"));
         }else{
             progress.setText("待学完");
             progress.setBackgroundColor(Color.parseColor("#FFCE44"));
         }
-
 
     }
 

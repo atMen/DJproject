@@ -7,7 +7,7 @@ android {
         applicationId "customer.tcrj.com.djproject"
         minSdkVersion 19
         targetSdkVersion 22
-        versionCode 11
+        versionCode 15
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //配置so文件

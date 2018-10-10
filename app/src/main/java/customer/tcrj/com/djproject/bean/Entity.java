@@ -85,6 +85,16 @@ public class Entity implements Serializable{
             private String photo;
             private String myPromise;
 
+            public String getDjztName() {
+                return djztName;
+            }
+
+            public void setDjztName(String djztName) {
+                this.djztName = djztName;
+            }
+
+            private String djztName;
+
             public String getId() {
                 return id;
             }

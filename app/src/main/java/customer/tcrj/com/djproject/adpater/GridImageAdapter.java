@@ -40,6 +40,11 @@ public class GridImageAdapter extends
     public static final int TYPE_CAMERA = 1;
     public static final int TYPE_PICTURE = 2;
     private LayoutInflater mInflater;
+
+    public List<LocalMedia> getList() {
+        return list;
+    }
+
     private List<LocalMedia> list = new ArrayList<>();
     private int selectMax = 9;
     private Context context;

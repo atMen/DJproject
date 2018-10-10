@@ -195,7 +195,10 @@
 
             </LinearLayout>
 
+
+            <!--注册-->
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/ll_zc"
                 android:gravity="center"
                 android:padding="10dp"

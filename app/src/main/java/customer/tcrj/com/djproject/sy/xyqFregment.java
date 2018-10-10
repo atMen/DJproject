@@ -57,8 +57,6 @@ public class xyqFregment extends BaseFragment implements BaseQuickAdapter.OnItem
         return R.layout.dw_fregment;
     }
 
-
-
     @Override
     protected void setView() {
 
@@ -149,7 +147,7 @@ public class xyqFregment extends BaseFragment implements BaseQuickAdapter.OnItem
                     public void onSuccess(int statusCode, hdjlInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
 
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
@@ -225,7 +223,9 @@ public class xyqFregment extends BaseFragment implements BaseQuickAdapter.OnItem
             canPull = true;
             pageNum++;
             detailAdapter.setNewData(response);
-            mPtrFrameLayout.refreshComplete();
+            if(mPtrFrameLayout != null){
+                mPtrFrameLayout.refreshComplete();
+            }
             showSuccess();
             disableLoadMoreIfNotFullPage(mRecyclerView,response.size());
         }
@@ -260,6 +260,13 @@ public class xyqFregment extends BaseFragment implements BaseQuickAdapter.OnItem
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
 
     }
 }

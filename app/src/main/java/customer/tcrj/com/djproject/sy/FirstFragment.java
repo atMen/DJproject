@@ -64,8 +64,8 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     @BindView(R.id.banner)
     Banner banner;
 
-//    @BindView(R.id.banner_db)
-//    MZBannerView banner_db;
+//  @BindView(R.id.banner_db)
+//  MZBannerView banner_db;
 
     @BindView(R.id.iv_bwcx)
     ImageView iv_bwcx;
@@ -107,8 +107,8 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     SimpleRatingBar start;
     @BindView(R.id.ll_cn)
     LinearLayout llcn;
-//    @BindView(R.id.icon_title)
-//    TextView icon_title;
+//  @BindView(R.id.icon_title)
+//  TextView icon_title;
 
     MainMenuAdapter adapter1;
     private MyOkHttp mMyOkhttp;
@@ -226,8 +226,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                                     }else {
                                         bannerList.remove(i);
                                     }
-
-//                                    Log.e("TAG","msg"+bannerList.get(i).getThumbUrl());
                                 }
                                 setBannerData(bannerList);
                             }
@@ -301,7 +299,7 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
             tv_jgzb.setText(personInfo.getDept());
             cn.setText(personInfo.getMyPromise());//承若
 
-            tv_zw.setText(personInfo.getDuty());
+            tv_zw.setText(personInfo.getDjztName());
 
             String starNum = personInfo.getStarNum();
             if(starNum != null){
@@ -416,7 +414,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
     }
 
-    //如果你需要考虑更好的体验，可以这么操作
     @Override
     public void onStart() {
         super.onStart();
@@ -444,7 +441,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                 bundle.putSerializable("picInfo",dataBean);
                 toClass(mContext,NewsDetailActivity.class,bundle);
     }
-
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void Event(MessageEvent messageEvent) {

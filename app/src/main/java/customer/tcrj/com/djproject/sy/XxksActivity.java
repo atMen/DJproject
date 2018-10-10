@@ -161,9 +161,14 @@ public class XxksActivity extends BaseActivity {
                             }
 
                         }
-
-
                     }
                 });
+    }
+
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
+
     }
 }

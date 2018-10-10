@@ -12,6 +12,7 @@ public class ApiConstants {
      * 外网 http://123.139.46.180:1122
      * 192.168.20.176:8888
      * 党务管理 http://192.168.20.217:8080/yldj-cms/wechat/app/dwgl/dwglindex.chtml?memberId=adcf025079f1499788a62cda8cb67def
+     * 外网 http://www.yldjw.gov.cn
      */
     public static final String TXImageURLROOT = "http://www.yldjw.gov.cn";
     private static final String URLROOT = TXImageURLROOT+"/app/";
@@ -26,11 +27,6 @@ public class ApiConstants {
      * 注册
      */
     public static final String registerApi = URLROOT+"person/register";
-
-//    /**
-//     * 个人信息
-//     */
-//    public static final String userinfoApi = URLROOT+"person/getPersonalCenter.chtml";
 
     /**
      * dwgl/getHomePagePic
@@ -69,6 +65,12 @@ public class ApiConstants {
      * 信息发布
      */
     public static final String msgsendApi = URLROOT+"dwgl/addHomePagePic";
+
+    /**
+     * 图片上传
+     */
+    public static final String sendpicApi = URLROOT+"file/uploadBase64Image";
+
 
 
     /**

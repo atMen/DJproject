@@ -151,7 +151,7 @@ public class SpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
                     @Override
                     public void onSuccess(int statusCode, kjInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
                             }else{//下拉刷新
@@ -278,5 +278,12 @@ public class SpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
         bundle.putString("playtime",item.getPlayTime());
         bundle.putString("minduction",item.getMinDuration());
         toClass(mContext,plActivity.class,bundle);
+    }
+
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(this);
+        super.onDestroy();
+
     }
 }

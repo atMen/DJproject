@@ -114,6 +114,8 @@ public class wsdcFregment extends BaseFragment implements BaseQuickAdapter.OnIte
         getData(pageNum);
     }
 
+
+
     //获取网络数据
     private void getData(final int num) {
 
@@ -151,7 +153,7 @@ public class wsdcFregment extends BaseFragment implements BaseQuickAdapter.OnIte
                     public void onSuccess(int statusCode, wjdcInfo response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
 
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
@@ -228,7 +230,9 @@ public class wsdcFregment extends BaseFragment implements BaseQuickAdapter.OnIte
             canPull = true;
             pageNum++;
             detailAdapter.setNewData(response);
-            mPtrFrameLayout.refreshComplete();
+            if(mPtrFrameLayout != null){
+                mPtrFrameLayout.refreshComplete();
+            }
             showSuccess();
             disableLoadMoreIfNotFullPage(mRecyclerView,response.size());
         }
@@ -263,8 +267,9 @@ public class wsdcFregment extends BaseFragment implements BaseQuickAdapter.OnIte
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         mMyOkhttp.cancel(this);
+        super.onDestroy();
+
     }
 
     @Override

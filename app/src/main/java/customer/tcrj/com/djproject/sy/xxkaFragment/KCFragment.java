@@ -283,4 +283,11 @@ public class KCFragment extends BaseFragment implements  BaseQuickAdapter.OnItem
         bundle.putString("kcid",id);
         toClass(mContext,XxksActivity.class,bundle);
     }
+
+    @Override
+    public void onDestroy() {
+        mMyOkhttp.cancel(mContext);
+        super.onDestroy();
+
+    }
 }
