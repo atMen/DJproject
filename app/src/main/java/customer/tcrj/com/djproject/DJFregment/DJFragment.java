@@ -237,7 +237,7 @@ public class DJFragment extends BaseFragment implements View.OnClickListener {
 
         try {
             jsonObject.put("page", "1");
-            jsonObject.put("size", "3");
+            jsonObject.put("size", "4");
             jsonObject.put("memberId", loginInfo.getData().getData().getId());
         } catch (JSONException e) {
             e.printStackTrace();

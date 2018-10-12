@@ -253,7 +253,6 @@ public class TpFregment extends BaseFragment implements BaseQuickAdapter.OnItemC
         }
     }
 
-
     private boolean ishidden;
     @Override
     public void onHiddenChanged(boolean hidden) {

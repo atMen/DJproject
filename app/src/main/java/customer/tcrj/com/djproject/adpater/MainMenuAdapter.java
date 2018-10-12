@@ -46,8 +46,8 @@ public class MainMenuAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        if (itemList.size() >= 3){
-            return 3;
+        if (itemList.size() >= 4){
+            return 4;
         }
 
         return itemList.size();

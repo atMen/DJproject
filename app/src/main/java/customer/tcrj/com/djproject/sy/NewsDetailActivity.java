@@ -157,7 +157,7 @@ public class NewsDetailActivity extends Activity {
 
 
             title.setText(response.getTitle());
-        date.setText(response.getShowTime());
+            date.setText(response.getShowTime());
         }
 
     }
