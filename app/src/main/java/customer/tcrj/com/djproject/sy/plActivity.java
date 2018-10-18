@@ -205,18 +205,14 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
                     public void onSuccess(int statusCode, plInfo response) {
                         Toast.makeText(plActivity.this, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
 
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
                             }else{//下拉刷新
                                 loadData(response.getData().getContent(),false);
                             }
-
                         }
-
-
-
                     }
                 });
 

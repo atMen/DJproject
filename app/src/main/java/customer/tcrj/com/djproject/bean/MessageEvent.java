@@ -7,9 +7,23 @@ package customer.tcrj.com.djproject.bean;
 public class MessageEvent {
 
     private String message;
-    public  MessageEvent(String message){
+    private int type;
+
+
+    public  MessageEvent(String message,int type){
         this.message=message;
+        this.type = type;
     }
+
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
 
     public String getMessage() {
         return message;

@@ -37,6 +37,7 @@ import customer.tcrj.com.djproject.net.ApiConstants;
 
 public class DialogCRActivity extends Activity implements View.OnClickListener {
 
+    private static final int EVENTYPE = 001;
     private ImageView iv_close;
     private TextView name;
     EditText title;
@@ -146,7 +147,7 @@ public class DialogCRActivity extends Activity implements View.OnClickListener {
                         Toast.makeText(DialogCRActivity.this, data.getMessage(), Toast.LENGTH_SHORT).show();
                         loginInfo.getData().getData().setMyPromise(s);
                         ACache.get(DialogCRActivity.this).put("loginInfo",loginInfo);
-                        EventBus.getDefault().post(new MessageEvent(s));
+                        EventBus.getDefault().post(new MessageEvent(s,EVENTYPE));
                         finish();
                     }
                 });

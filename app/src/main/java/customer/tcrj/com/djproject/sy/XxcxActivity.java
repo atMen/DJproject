@@ -44,6 +44,7 @@ import customer.tcrj.com.djproject.bean.Entity;
 import customer.tcrj.com.djproject.bean.kcList;
 import customer.tcrj.com.djproject.bean.qyListInfo;
 import customer.tcrj.com.djproject.net.ApiConstants;
+import customer.tcrj.com.djproject.sy.xxkaFragment.NewXxksActivity;
 import customer.tcrj.com.djproject.widget.CustomLoadMoreView;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -335,7 +336,7 @@ public class XxcxActivity extends BaseActivity implements BaseQuickAdapter.OnIte
         String id = item.getId();
         Bundle bundle = new Bundle();
         bundle.putString("kcid",id);
-        toClass(this,XxksActivity.class,bundle);
+        toClass(this,NewXxksActivity.class,bundle);
     }
 
     @Override
@@ -361,6 +362,9 @@ public class XxcxActivity extends BaseActivity implements BaseQuickAdapter.OnIte
                 break;
             case R.id.btnback:
                 finish();
+                break;
+
+            default:
                 break;
         }
     }

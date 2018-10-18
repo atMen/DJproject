@@ -1,6 +1,7 @@
 package customer.tcrj.com.djproject.adpater;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -70,7 +71,13 @@ public class SplistviewAdapter extends BaseQuickAdapter<kjInfo.DataBean.ContentB
         titlename.setText(item.getName());
         time.setText(item.getCreateDate());
         zannum.setText(item.getLikenum()+"");
-        progress.setText("已学"+studyState+" %");
+        if (studyState.equals("100")){
+            progress.setText("已学完");
+            progress.setBackgroundColor(Color.parseColor("#86B659"));
+        }else{
+            progress.setText("待学完");
+            progress.setBackgroundColor(Color.parseColor("#FFCE44"));
+        }
 
         String photo = item.getFile();
         Log.e("TAG","file:"+photo);

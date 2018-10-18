@@ -44,8 +44,11 @@ public class DkAdapter extends BaseQuickAdapter<dkInfo.DataBean.ContentBean, Bas
 
 
         String optime = item.getCsrq();
-        String substring = optime.substring(0, 10);
-        time.setText("出生日期："+substring);
+        if(optime != null && !"".equals(optime)){
+            String substring = optime.substring(0, 10);
+            time.setText("出生日期："+substring);
+        }
+
         String sex1 = item.getSex();
         if("1".equals(sex1)){
             sex.setText("性别：男");

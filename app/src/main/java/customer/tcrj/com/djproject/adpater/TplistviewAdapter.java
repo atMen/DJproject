@@ -2,6 +2,7 @@ package customer.tcrj.com.djproject.adpater;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -73,7 +74,16 @@ public class TplistviewAdapter extends BaseQuickAdapter<kjInfo.DataBean.ContentB
         titlename.setText(item.getName());
         time.setText(item.getCreateDate());
         zannum.setText(item.getLikenum()+"");
-        progress.setText("已学"+studyState+" %");
+
+
+        if (studyState.equals("100")){
+            progress.setText("已学完");
+            progress.setBackgroundColor(Color.parseColor("#86B659"));
+        }else{
+            progress.setText("待学完");
+            progress.setBackgroundColor(Color.parseColor("#FFCE44"));
+        }
+//        progress.setText("已学"+studyState+" %");
 
 
         Log.e("TAG","item.isHasLike()："+item.isHasLike());

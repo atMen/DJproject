@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import customer.tcrj.com.djproject.base.BaseFragment;
 import customer.tcrj.com.djproject.bean.Entity;
 import customer.tcrj.com.djproject.bean.MenuEntity;
 import customer.tcrj.com.djproject.bean.MessageEvent;
+import customer.tcrj.com.djproject.bean.kcList;
 import customer.tcrj.com.djproject.bean.picInfo;
 import customer.tcrj.com.djproject.bean.userInfo;
 import customer.tcrj.com.djproject.mine.DialogmsgActivity;
@@ -73,7 +75,7 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     ImageView iv_yxlz;
 
     @BindView(R.id.ll_xxks)
-    LinearLayout llxxks;
+    RelativeLayout llxxks;
     @BindView(R.id.ll_xxcx)
     LinearLayout llxxcx;
     @BindView(R.id.ll_hdjl)
@@ -101,6 +103,9 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     TextView tv_jgzb;
     @BindView(R.id.tv_zw)
     TextView tv_zw;
+    @BindView(R.id.tv_stunum)
+    TextView tv_stunum;
+
     @BindView(R.id.iv_photo)
     CircleImageView iv_photo;
     @BindView(R.id.start)
@@ -114,8 +119,10 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
     private MyOkHttp mMyOkhttp;
     Entity loginInfo = null;
 
-    public static final int[] BANNER = new int[]{R.mipmap.banner1, R.mipmap.banner2, R.mipmap.banner3, R.mipmap.banner4, R.mipmap.banner5};
+    List<picInfo.DataBean> bannerList;
+    private List<String> titles;
 
+    public static final int[] BANNER = new int[]{R.mipmap.banner1, R.mipmap.banner2, R.mipmap.banner3, R.mipmap.banner4, R.mipmap.banner5};
 
     @Override
     protected int setLayout() {
@@ -182,6 +189,58 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
         geticon();
 
+
+
+    }
+
+    private void getStuNum() {
+
+
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+
+            jsonObject.put("classifyId", "");
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
+            jsonObject.put("page", "1");
+            jsonObject.put("size", "1");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        mMyOkhttp.post()
+                .url(ApiConstants.kclistApi)
+                .jsonParams(jsonObject.toString())
+                .enqueue(new GsonResponseHandler<kcList>() {
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
+
+//                        Toast.makeText(mContext, error_msg, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, kcList response) {
+
+                        if("0".equals(response.getErrorCode())){
+
+                            kcList.DataBean data = response.getData();
+                            if(data != null){
+                                int totalElements = data.getTotalElements();
+                                if(totalElements > 0){
+                                    tv_stunum.setVisibility(View.VISIBLE);
+                                    tv_stunum.setText(totalElements+"");
+                                }else {
+                                    tv_stunum.setVisibility(View.GONE);
+                                }
+                            }else {
+                                tv_stunum.setVisibility(View.GONE);
+                            }
+
+                        }
+                    }
+                });
+
     }
 
     private void geticon() {
@@ -234,8 +293,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
                     }
                 });
     }
-    List<picInfo.DataBean> bannerList;
-    private List<String> titles;
 
     private void setBannerData(List<picInfo.DataBean> bannerList) {
 
@@ -329,7 +386,6 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
 
     }
-
 
 //    public static class BannerViewHolder implements MZViewHolder<picInfo.DataBean> {
 //        private ImageView mImageView;
@@ -444,7 +500,25 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void Event(MessageEvent messageEvent) {
-        Log.e("TAG","evenbus:"+messageEvent.getMessage());
-        cn.setText(messageEvent.getMessage());
+
+        switch (messageEvent.getType()){
+
+            case 001:
+                Log.e("TAG","evenbus:"+messageEvent.getMessage());
+                cn.setText(messageEvent.getMessage());
+                break;
+
+
+            default:
+                break;
+        }
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e("TAG","onResume");
+        getStuNum();//刷新课件num
     }
 }

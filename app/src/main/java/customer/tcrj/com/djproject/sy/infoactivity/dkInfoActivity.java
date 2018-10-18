@@ -66,11 +66,12 @@ public class dkInfoActivity extends BaseActivity {
             name.setText("姓名："+response.getRealName());
 
             String optime = response.getCsrq();
-            String substring = optime.substring(0, 10);
-            time.setText("出生日期："+substring);
+            if(optime != null && !"".equals(optime)){
+                String substring = optime.substring(0, 10);
+                time.setText("出生日期："+substring);
+            }
 
             String sex1 = response.getSex();
-
             if("1".equals(sex1)){
                 sex.setText("性别：男");
             }else if("2".equals(sex1)){

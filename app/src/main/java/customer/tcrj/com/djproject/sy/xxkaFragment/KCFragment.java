@@ -165,7 +165,6 @@ public class KCFragment extends BaseFragment implements  BaseQuickAdapter.OnItem
                             loadMoreData(null,true);
                         }else{
                             loadData(null,true);
-
                         }
                     }
 
@@ -173,7 +172,7 @@ public class KCFragment extends BaseFragment implements  BaseQuickAdapter.OnItem
                     public void onSuccess(int statusCode, kcList response) {
 //                        Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
 
-                        if(response.getErrorCode().equals("0")){
+                        if("0".equals(response.getErrorCode())){
 
                             if(num > 1){//上拉加载
                                 loadMoreData(response,false);
@@ -281,7 +280,7 @@ public class KCFragment extends BaseFragment implements  BaseQuickAdapter.OnItem
         String id = item.getId();
         Bundle bundle = new Bundle();
         bundle.putString("kcid",id);
-        toClass(mContext,XxksActivity.class,bundle);
+        toClass(mContext,NewXxksActivity.class,bundle);
     }
 
     @Override

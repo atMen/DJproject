@@ -52,12 +52,13 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
     ImageView btnback;
 
     private MyOkHttp mMyOkhttp;
+    Entity loginInfo = null;
     private ExamlistAdapter detailAdapter;
     private List<zxdtInfo.DataBean.ContentBean> beanList;
 
     private int pageNum = 1;
     private boolean canPull = true;
-    Entity loginInfo = null;
+
 
     String type;
     @Override
@@ -164,7 +165,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
 
         @Override
         public void onSuccess(int statusCode, zxdtInfo response) {
-//      Toast.makeText(mContext, response.getMessage(), Toast.LENGTH_SHORT).show();
+
 
             if("0".equals(response.getErrorCode())){
 
@@ -311,7 +312,7 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
                     Toast.makeText(this, "正在阅卷,请稍后查看", Toast.LENGTH_SHORT).show();
                 }else {
                     bundle1.putString("url",ApiConstants.h5examApi+"?memberId="+loginInfo.getData().getData().getId()+"&examId="+response.getId());
-//                bundle1.putString("url",ApiConstants.h5examApi);
+//                  bundle1.putString("url",ApiConstants.h5examApi);
                     toClass(this,ksdtActivity.class,bundle1);
                 }
 

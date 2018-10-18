@@ -26,7 +26,7 @@
         tools:replace="android:icon, android:theme">
         <meta-data
             android:name="PGYER_APPID"
-            android:value="f6e643344b963c790b674a7eff800180"></meta-data>
+            android:value="f6e643344b963c790b674a7eff800180" />
 
         <activity
             android:name=".LoginActivity"
@@ -41,7 +41,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -373,7 +373,8 @@
         <activity
             android:name=".mine.DialogCRActivity"
             android:theme="@style/myTransparent" />
-        <activity android:name=".sy.WebViewActivity"></activity>
+        <activity android:name=".sy.WebViewActivity" />
+        <activity android:name=".sy.xxkaFragment.NewXxksActivity"></activity>
     </application>
 
 </manifest>

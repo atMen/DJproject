@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -30,6 +31,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.githang.statusbar.StatusBarCompat;
 
@@ -40,6 +42,7 @@ import java.util.List;
 import customer.tcrj.com.djproject.R;
 import customer.tcrj.com.djproject.Utils.ACache;
 import customer.tcrj.com.djproject.bean.Entity;
+import customer.tcrj.com.djproject.mine.ksdtActivity;
 import customer.tcrj.com.djproject.net.ApiConstants;
 
 @TargetApi(19)
@@ -72,10 +75,17 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         tv_back.setOnClickListener(this);
 
+//        mWebView.loadUrl("http://192.168.20.217:8080/yldj-cms/wechat/App/dwgl/dwglAppindex.chtml");
         mWebView.loadUrl(TMP_URL);
+
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         WebSettings settings = mWebView.getSettings();
+
+        settings.setLoadsImagesAutomatically(true); //支持自动加载图片
+        settings.setDefaultTextEncodingName("utf-8");//设置编码格式
+
+        mWebView.addJavascriptInterface(getAndroidObject(), "android");
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptEnabled(true);
@@ -136,16 +146,49 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK&&mWebView.canGoBack()){
-            mWebView.goBack();
-            return true;
-        }else{
-            onBackPressed();
-        }
-        return super.onKeyDown(keyCode, event);
+
+    public Object getAndroidObject() {
+
+        Object insertObj = new Object(){
+
+
+            @JavascriptInterface
+            public void T(final String t){//js调用java Toast方法
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(WebViewActivity.this, t, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+
+            @JavascriptInterface
+            public String getUserID(){//js调用java Toast方法
+                Toast.makeText(WebViewActivity.this, loginInfo.getData().getData().getId(), Toast.LENGTH_SHORT).show();
+                return loginInfo.getData().getData().getId();
+            }
+
+
+            @JavascriptInterface
+            public void back() {
+                finish();
+            }
+
+        };
+        return insertObj;
     }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if(keyCode==KeyEvent.KEYCODE_BACK&&mWebView.canGoBack()){
+//            mWebView.goBack();
+//            return true;
+//        }else{
+//            onBackPressed();
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

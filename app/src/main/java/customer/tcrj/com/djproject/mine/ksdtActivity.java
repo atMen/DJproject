@@ -42,7 +42,7 @@ public class ksdtActivity extends BaseActivity {
         Log.e("TAG","答题URL:"+url);
         // 设置WebViewClient
         mWebView.setWebViewClient(new WebViewClient() {
-            // url拦截
+            //url拦截
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //使用自己的WebView组件来响应Url加载事件，而不是使用默认浏览器器加载页面
@@ -55,7 +55,7 @@ public class ksdtActivity extends BaseActivity {
             // 页面开始加载
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-//                mProgressBar.setVisibility(View.VISIBLE);
+//              mProgressBar.setVisibility(View.VISIBLE);
                 super.onPageStarted(view, url, favicon);
             }
 

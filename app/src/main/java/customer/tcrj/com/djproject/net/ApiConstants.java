@@ -179,8 +179,8 @@ public class ApiConstants {
     public static final String h5yyj = TXImageURLROOT+"/wechat/examstack/exam/myExam.chtml";
 
 
-
-    public static final String h5dwgl = TXImageURLROOT+"/wechat/APP/dwgl/dwglindex.chtml?memberId=";
+//    http://192.168.20.217:8080/yldj-cms/wechat/App/dwgl/dwglAppindex.chtml
+    public static final String h5dwgl = TXImageURLROOT+"/wechat/APP/dwgl/dwglindex.chtml?deviceType=android&memberId=";
 
     public static final String h5xxks = TXImageURLROOT+"/wechat/APP/dwgl/mzshh/democracyForm.chtml?memberId=";
 
