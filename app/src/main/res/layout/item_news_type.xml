@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="11.5dp"
+        android:paddingRight="11.5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_popu_report"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bg_height_40"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="市级新闻"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/font_size_14" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_1"
+            android:background="@color/main_line" />
+
+
+
+
+    </LinearLayout>

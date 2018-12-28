@@ -78,7 +78,7 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
     private int pageNum = 1;
     private boolean canPull = true;
     private String memberId;
-    private String playtime,minduction;
+    private String playtime,minduction,CloseCondition;
     private String studyState;
     private String courseId;
     private String file;
@@ -110,6 +110,7 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
         studyState = getIntent().getStringExtra("studyState");
         playtime = getIntent().getStringExtra("playtime");
         minduction = getIntent().getStringExtra("minduction");
+        CloseCondition = getIntent().getStringExtra("CloseCondition");
 
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
         mPtrFrameLayout.disableWhenHorizontalMove(true);
@@ -476,7 +477,7 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
     protected void onStop() {
         super.onStop();
         Log.e("TAG","onStop");
-//        NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
+        NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
     }
 
     @Override
@@ -599,39 +600,77 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
         int Duration = (int)mNiceVideoPlayer.getDuration()/ 1000;
         int Current = (int)mNiceVideoPlayer.getCurrentPosition();//当前播放毫秒数
 
-        if(studyState != null || studyState.equals("100")){//是否完成课件学习
+
+        //完成课件学习
+        if(studyState != null && studyState.equals("100")){
             result = "100";
 
 
-        }else{//未完成学习进度
+        }
+        //未完成学习进度
+        else
+        {
 
-            if(minduction != null || !minduction.equals("0")) {//有时间节点
+            if("0".equals(CloseCondition)){
 
-                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
+                NumberFormat numberFormat = NumberFormat.getInstance();
+                numberFormat.setMaximumFractionDigits(0);
+                result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
+
+            }else {
+
+                if(minduction != null && !"0".equals(minduction)) {//有时间节点
+
+                    if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
+                        result = "100";
+
+                    }else{
+
+                        NumberFormat numberFormat = NumberFormat.getInstance();
+                        numberFormat.setMaximumFractionDigits(0);
+                        result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
+
+                    }
+                }else{//没有时间节点
+
+//                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
+//                    result = "100";
+////                  Current = 0;
+//
+//                }else{
+
                     result = "100";
-
-
-                }else{
-
-                    NumberFormat numberFormat = NumberFormat.getInstance();
-                    numberFormat.setMaximumFractionDigits(0);
-                    result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
-
+//                }
                 }
-            }else{//没有时间节点
 
-                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
-                    result = "100";
-//                    Current = 0;
-
-                }else{
-
-                    NumberFormat numberFormat = NumberFormat.getInstance();
-                    numberFormat.setMaximumFractionDigits(0);
-                    result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
-
-                }
             }
+//
+//            if(minduction != null && !"0".equals(minduction)) {//有时间节点
+//
+//                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
+//                    result = "100";
+//
+//                }else{
+//
+//                    NumberFormat numberFormat = NumberFormat.getInstance();
+//                    numberFormat.setMaximumFractionDigits(0);
+//                    result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
+//
+//                }
+//            }else{//没有时间节点
+//
+////                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
+////                    result = "100";
+//////                  Current = 0;
+////
+////                }else{
+//
+//                    NumberFormat numberFormat = NumberFormat.getInstance();
+//                    numberFormat.setMaximumFractionDigits(0);
+//                    result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
+//
+////                }
+//            }
 
 
 
@@ -644,7 +683,7 @@ public class plActivity extends BaseActivity implements BaseQuickAdapter.OnItemC
 
 
 
-        Log.e("TAG","上传playtime:"+CurrentPosition+"Duration:"+Duration+"Current:"+Current);
+        Log.e("TAG","上传playtime:"+CurrentPosition+"Duration:"+Duration+"result:"+result);
         showLoadingDialog("正在保存学习进度");
         JSONObject jsonObject = new JSONObject();
         try {

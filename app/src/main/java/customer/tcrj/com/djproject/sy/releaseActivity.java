@@ -1,5 +1,6 @@
 package customer.tcrj.com.djproject.sy;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +24,8 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.permissions.RxPermissions;
+import com.luck.picture.lib.tools.PictureFileUtils;
 import com.tsy.sdk.myokhttp.MyOkHttp;
 import com.tsy.sdk.myokhttp.response.GsonResponseHandler;
 
@@ -38,15 +42,22 @@ import customer.tcrj.com.djproject.LoginActivity;
 import customer.tcrj.com.djproject.MainActivity;
 import customer.tcrj.com.djproject.MyApp;
 import customer.tcrj.com.djproject.R;
+import customer.tcrj.com.djproject.Utils.ACache;
 import customer.tcrj.com.djproject.Utils.Utils;
 import customer.tcrj.com.djproject.adpater.GridImageAdapter;
+import customer.tcrj.com.djproject.adpater.MainMenuAdapter;
+import customer.tcrj.com.djproject.adpater.NewsTypeAdapter;
 import customer.tcrj.com.djproject.base.BaseActivity;
 import customer.tcrj.com.djproject.bean.Entity;
+import customer.tcrj.com.djproject.bean.info;
 import customer.tcrj.com.djproject.bean.picBean;
 import customer.tcrj.com.djproject.checkUpdata.SweetAlertDialog;
 import customer.tcrj.com.djproject.net.ApiConstants;
 import customer.tcrj.com.djproject.widget.DialogDateTimePicker;
 import customer.tcrj.com.djproject.widget.FullyGridLayoutManager;
+import customer.tcrj.com.djproject.widget.MyGridView;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class releaseActivity extends BaseActivity {
 
@@ -79,6 +90,8 @@ public class releaseActivity extends BaseActivity {
     private int themeId;
 
     private MyOkHttp mMyOkhttp;
+    private info data;
+    private Entity loginInfo;
 
 
     @Override
@@ -90,17 +103,56 @@ public class releaseActivity extends BaseActivity {
     protected void setView() {
 //        setPopuWindow();
         mMyOkhttp = MyApp.getInstance().getMyOkHttp();
+        loginInfo = (Entity) ACache.get(this).getAsObject("loginInfo");
         txtTitle.setText("信息发布");
         initPic();
         btnback.setOnClickListener(this);
         rl_type.setOnClickListener(this);
         time_pop.setOnClickListener(this);
         btn_send.setOnClickListener(this);
+
+
     }
 
     @Override
     protected void setData() {
 
+        getData();
+    }
+
+    private void getData() {
+
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        mMyOkhttp.post()
+                .url(ApiConstants.InfoLevelApi)
+                .jsonParams(jsonObject.toString())
+                .tag(this)
+                .enqueue(new GsonResponseHandler<info>() {
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
+                        hideLoadingDialog();
+//                        showUpdateDialog("信息发布失败", 1);
+//                        Log.e("TAG","msg"+statusCode);
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, info response) {
+                        hideLoadingDialog();
+                        if("0".equals(response.getErrorCode())){
+                            data = response;
+                        }
+                    }
+                });
     }
 
     @Override
@@ -192,10 +244,10 @@ public class releaseActivity extends BaseActivity {
     }
 
     private PopupWindow mPopTop;
-    private TextView tvPopuReport;
-    private TextView tvPopuShare;
-    private TextView tvPopuMove;
-    private TextView tvPopuSeas;
+//    private TextView tvPopuReport;
+//    private TextView tvPopuShare;
+//    private TextView tvPopuMove;
+//    private TextView tvPopuSeas;
     /**
      * 弹出框样式设置
      */
@@ -229,45 +281,72 @@ public class releaseActivity extends BaseActivity {
      *
      * @param v
      */
-    private void setConentViewClickListener(View v) {
-        tvPopuReport = (TextView) v.findViewById(R.id.tv_popu_report);
-        tvPopuShare = (TextView) v.findViewById(R.id.tv_popu_share);
-        tvPopuMove = (TextView) v.findViewById(R.id.tv_popu_move);
-        tvPopuSeas = (TextView) v.findViewById(R.id.tv_popu_seas);
 
-        tvPopuReport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPopTop.dismiss();
-                typeId = "JFRFRB";
-                type.setText("市级新闻");
-            }
-        });
-        tvPopuShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPopTop.dismiss();
-                typeId = "VZJNf2";
-                type.setText("县级新闻");
-            }
-        });
-        tvPopuMove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPopTop.dismiss();
-                typeId = "Vr6beq";
-                type.setText("党委新闻");
-            }
-        });
-        tvPopuSeas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPopTop.dismiss();
-                typeId = "3A3YN3";
-                type.setText("支部新闻");
-            }
-        });
+    NewsTypeAdapter adapter1;
+    private void setConentViewClickListener(View v) {
+
+        if(data != null){
+            MyGridView listView = v.findViewById(R.id.listview);
+            adapter1 = new NewsTypeAdapter(this);
+            adapter1.setData(data);
+            listView.setAdapter(adapter1);
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    info.DataBean item =(info.DataBean) parent.getAdapter().getItem(position);
+
+
+                    mPopTop.dismiss();
+                    typeId = item.getId();
+                    type.setText(item.getName());
+                }
+            });
+
+        }
+
+
+
+
+//        tvPopuReport = (TextView) v.findViewById(R.id.tv_popu_report);
+//        tvPopuShare = (TextView) v.findViewById(R.id.tv_popu_share);
+//        tvPopuMove = (TextView) v.findViewById(R.id.tv_popu_move);
+//        tvPopuSeas = (TextView) v.findViewById(R.id.tv_popu_seas);
+//
+//        tvPopuReport.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPopTop.dismiss();
+//                typeId = "JFRFRB";
+//                type.setText("市级新闻");
+//            }
+//        });
+//        tvPopuShare.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPopTop.dismiss();
+//                typeId = "VZJNf2";
+//                type.setText("县级新闻");
+//            }
+//        });
+//        tvPopuMove.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPopTop.dismiss();
+//                typeId = "Vr6beq";
+//                type.setText("党委新闻");
+//            }
+//        });
+//        tvPopuSeas.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPopTop.dismiss();
+//                typeId = "3A3YN3";
+//                type.setText("支部新闻");
+//            }
+//        });
     }
+
 
 
     private void toSend(final String title,String categoryId,String content, String time, String att_path) {
@@ -371,6 +450,32 @@ public class releaseActivity extends BaseActivity {
 
 
     private void initPic() {
+        // 清空图片缓存，包括裁剪、压缩后的图片 注意:必须要在上传完成后调用 必须要获取权限
+        RxPermissions permissions = new RxPermissions(this);
+        permissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Observer<Boolean>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+
+            @Override
+            public void onNext(Boolean aBoolean) {
+                if (aBoolean) {
+                    PictureFileUtils.deleteCacheDirFile(releaseActivity.this);
+                } else {
+                    Toast.makeText(releaseActivity.this,
+                            getString(R.string.picture_jurisdiction), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+            }
+
+            @Override
+            public void onComplete() {
+            }
+        });
+
         themeId = R.style.picture_default_style;
 
         FullyGridLayoutManager manager = new FullyGridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
@@ -404,6 +509,9 @@ public class releaseActivity extends BaseActivity {
                 }
             }
         });
+
+
+
     }
 
 
@@ -414,10 +522,10 @@ public class releaseActivity extends BaseActivity {
             // 进入相册 以下是例子：不需要的api可以不写
             PictureSelector.create(releaseActivity.this)
                     .openGallery(PictureMimeType.ofImage())// 全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
-                    .theme(themeId)// 主题样式设置 具体参考 values/styles   用法：R.style.picture.white.style
-                    .maxSelectNum(maxSelectNum)// 最大图片选择数量
+                    .theme(R.style.picture_default_style)// 主题样式设置 具体参考 values/styles   用法：R.style.picture.white.style
+                    .maxSelectNum(1)// 最大图片选择数量
                     .minSelectNum(1)// 最小选择数量
-                    .imageSpanCount(3)// 每行显示个数
+                    .imageSpanCount(4)// 每行显示个数
                     .selectionMode(PictureConfig.MULTIPLE)// 多选 or 单选
                     .previewImage(true)// 是否可预览图片
                     .isCamera(true)// 是否显示拍照按钮
@@ -434,13 +542,13 @@ public class releaseActivity extends BaseActivity {
                     .isGif(false)// 是否显示gif图片
                     .freeStyleCropEnabled(true)// 裁剪框是否可拖拽
                     .openClickSound(false)// 是否开启点击声音
-                    .selectionMedia(selectList)// 是否传入已选图片
+                    .selectionMedia(null)// 是否传入已选图片
                     //.isDragFrame(false)// 是否可拖动裁剪框(固定)
-//                        .videoMaxSecond(15)
-//                        .videoMinSecond(10)
+//              .videoMaxSecond(15)
+//              .videoMinSecond(10)
                     //.previewEggs(false)// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中)
                     //.cropCompressQuality(90)// 裁剪压缩质量 默认100
-                    .minimumCompressSize(100)//  小于100kb的图片不压缩
+                    .minimumCompressSize(100)// 小于100kb的图片不压缩
                     //.cropWH()// 裁剪宽高比，设置如果大于图片本身宽高则无效
                     //.rotateEnabled(true) // 裁剪是否可旋转图片
                     //.scaleEnabled(true)// 裁剪是否可放大缩小图片
@@ -492,4 +600,6 @@ public class releaseActivity extends BaseActivity {
 
 
     }
+
+
 }

@@ -122,8 +122,16 @@ public class NewXxksActivity extends BaseActivity implements BaseQuickAdapter.On
 
     @Override
     protected void setData() {
-        getData(pageNum);
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getData(1);
+
+    }
+
     @Override
     public void onDestroy() {
         mMyOkhttp.cancel(this);
@@ -268,6 +276,7 @@ public class NewXxksActivity extends BaseActivity implements BaseQuickAdapter.On
             bundle2.putString("studyState",item.getStudyState());
             bundle2.putString("playtime",item.getPlayTime());
             bundle2.putString("minduction",item.getMinDuration());
+            bundle2.putString("CloseCondition",item.getCloseCondition());
             toClass(this,plActivity.class,bundle2);
         }else if("13302".equals(type)){
             Bundle bundle3 = new Bundle();

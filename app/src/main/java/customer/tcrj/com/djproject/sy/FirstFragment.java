@@ -249,8 +249,8 @@ public class FirstFragment extends BaseFragment implements View.OnClickListener,
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("username", "");
-            jsonObject.put("password", "");
+            jsonObject.put("memberId", loginInfo.getData().getData().getId());
+
 
         } catch (JSONException e) {
             e.printStackTrace();

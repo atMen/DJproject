@@ -62,6 +62,8 @@ public class NetJSCallJavaActivity extends AppCompatActivity implements View.OnC
 		//设置出现缩放工具
 		webSettings.setBuiltInZoomControls(false);
 		webSettings.setDefaultFontSize(20);
+
+
 		//访问地址设置
 		webView.loadUrl(url);
 		// 设置WebViewClient

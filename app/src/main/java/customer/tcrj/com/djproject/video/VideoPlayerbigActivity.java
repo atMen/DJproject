@@ -1485,16 +1485,16 @@ Log.e("TAG","Duration:"+Duration+"----CurrentPosition"+CurrentPosition+"minducti
                 }
             }else{//没有时间节点
 
-                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
-                    result = "100";
-
-                }else{
+//                if (CurrentPosition >= (Long.parseLong(minduction) * 60)) {//播放到达学习制定进度
+//                    result = "100";
+//
+//                }else{
 
                     NumberFormat numberFormat = NumberFormat.getInstance();
                     numberFormat.setMaximumFractionDigits(0);
                     result = numberFormat.format((float)CurrentPosition/(float)Duration*100);
 
-                }
+//                }
             }
 
 

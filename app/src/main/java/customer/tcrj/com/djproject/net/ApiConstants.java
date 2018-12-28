@@ -8,13 +8,15 @@ package customer.tcrj.com.djproject.net;
 public class ApiConstants {
 
     //TODO:记得修改党务管理url地址
-    /**
+    /**http://192.168.20.7:8080/yldj-cms/app/learn/setStudyState
+
+     * http://192.168.20.217:8080/yldj-cms
      * 外网 http://123.139.46.180:1122
      * 192.168.20.176:8888
      * 党务管理 http://192.168.20.217:8080/yldj-cms/wechat/app/dwgl/dwglindex.chtml?memberId=adcf025079f1499788a62cda8cb67def
      * 外网 http://www.yldjw.gov.cn
      */
-    public static final String TXImageURLROOT = "http://www.yldjw.gov.cn";
+    public static final String TXImageURLROOT = "https://www.yldjw.gov.cn";
     private static final String URLROOT = TXImageURLROOT+"/app/";
     public static final String ImageURLROOT = TXImageURLROOT+"/web.files";
     public static final String FileURLROOT = TXImageURLROOT+"/web.files";
@@ -70,6 +72,12 @@ public class ApiConstants {
      * 图片上传
      */
     public static final String sendpicApi = URLROOT+"file/uploadBase64Image";
+
+    /**
+     * 信息发布类型数据
+     */
+    public static final String InfoLevelApi = URLROOT+"dwgl/getInfoLevel";
+
 
 
 

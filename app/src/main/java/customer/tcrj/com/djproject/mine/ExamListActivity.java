@@ -312,8 +312,8 @@ public class ExamListActivity extends BaseActivity implements FreshNewsAdapter.O
                     Toast.makeText(this, "正在阅卷,请稍后查看", Toast.LENGTH_SHORT).show();
                 }else {
                     bundle1.putString("url",ApiConstants.h5examApi+"?memberId="+loginInfo.getData().getData().getId()+"&examId="+response.getId());
-//                  bundle1.putString("url",ApiConstants.h5examApi);
-                    toClass(this,ksdtActivity.class,bundle1);
+//                  bundle1.putString("url","http://192.168.20.217:8080/yldj-cms/app/exam.chtml"+"?memberId="+loginInfo.getData().getData().getId()+"&examId="+response.getId());
+                  toClass(this,ksdtActivity.class,bundle1);
                 }
 
             }else if(examState.equals("2")){//已交卷
